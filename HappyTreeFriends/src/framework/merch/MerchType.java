@@ -6,6 +6,4 @@ public enum MerchType {
     DELUXE_BURGER,
 
     COKE,
-    ORANGE_JUICE
-
 }
