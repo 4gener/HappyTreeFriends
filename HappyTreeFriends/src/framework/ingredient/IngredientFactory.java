@@ -1,12 +1,9 @@
-package framework.factory;
-
-import framework.ingredient.*;
+package framework.ingredient;
 
 /**
  * Factory Pattern
  */
-public class IngredientFactory extends Factory {
-    @Override
+public class IngredientFactory {
     public Ingredient createIngredient(IngredientType ingredientType) {
         switch (ingredientType) {
             case BACON:
