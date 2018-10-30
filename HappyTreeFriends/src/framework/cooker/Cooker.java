@@ -13,7 +13,7 @@ public abstract class Cooker {
         return Arrays.asList(availableTypes).contains(type);
     }
 
-    protected void cook(Ingredient ingredient){
+    public void cook(Ingredient ingredient){
         if (!(this.isIngredientTypeLegal(ingredient.getIngredientType()))) {
             throw new IllegalArgumentException("this ingredient doesn't belong here");
         }
