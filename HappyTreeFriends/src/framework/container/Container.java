@@ -24,6 +24,9 @@ public abstract class Container {
     }
 
     public void put(Ingredient ingredient) {
+        if (!(this.isIngredientTypeLegal(ingredient.getIngredientType()))) {
+            throw new IllegalArgumentException("this ingredient doesn't belong here");
+        }
 
         ingredients.add(ingredient);
     }
