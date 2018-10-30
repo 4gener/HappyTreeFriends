@@ -7,14 +7,14 @@ import framework.merch.single.SingleOrder;
 import java.util.ArrayList;
 
 public abstract class Burger extends SingleOrder {
-    private ArrayList<IngredientType> requirments = new ArrayList<>();
+    private ArrayList<IngredientType> requirements = new ArrayList<>();
 
-    Burger(ArrayList<IngredientType> requirments, double price) {
+    Burger(ArrayList<IngredientType> requirements, double price) {
         super(price);
-        this.requirments.addAll(requirments);
+        this.requirements.addAll(requirements);
     }
 
     public ArrayList<IngredientType> getRequirments() {
-        return requirments;
+        return requirements;
     }
 }
