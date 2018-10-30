@@ -54,6 +54,4 @@ public abstract class Ingredient implements TimeObserver {
             System.out.println("一片新鲜的" + this.getName() + " 新鲜指数为" + this.stateRate);
         }
     }
-
-    ;
 }

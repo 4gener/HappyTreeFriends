@@ -14,8 +14,7 @@ public class Griller extends Cooker {
     }
 
     @Override
-    public void cook(Ingredient ingredient) {
-        super.cook(ingredient);
-        System.out.println("你成功在烤架上处理好了该食材。");
+    public String getName() {
+        return "烤架";
     }
 }

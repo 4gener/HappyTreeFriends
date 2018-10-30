@@ -14,8 +14,7 @@ public class CounterTop extends Cooker {
     }
 
     @Override
-    public void cook(Ingredient ingredient) {
-        super.cook(ingredient);
-        System.out.println("你成功在操作台上处理好了该食材。");
+    public String getName() {
+        return "操作台";
     }
 }
