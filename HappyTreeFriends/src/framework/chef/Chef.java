@@ -1,7 +1,8 @@
 package framework.chef;
 
 /**
- * Singleton Pattern
+ * DP:
+ *   Singleton
  */
 public final class Chef {
     private Chef() {

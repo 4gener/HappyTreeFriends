@@ -2,6 +2,10 @@ package framework.container;
 
 import framework.ingredient.Ingredient;
 
+/**
+ * DP:
+ * Singleton
+ */
 public class Fridge implements Container {
     private Fridge() {
         if (instance == null) {

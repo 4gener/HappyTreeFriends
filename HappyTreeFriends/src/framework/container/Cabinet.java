@@ -2,6 +2,10 @@ package framework.container;
 
 import framework.ingredient.Ingredient;
 
+/**
+ * DP:
+ * Singleton
+ */
 public class Cabinet implements Container {
 
     private Cabinet() {
