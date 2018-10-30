@@ -2,6 +2,9 @@ package framework.ingredient;
 
 import framework.cooker.Cooker;
 
+/**
+ * Strategy
+ */
 public abstract class Ingredient {
 
     private IngredientState state = IngredientState.OK;
@@ -9,14 +12,17 @@ public abstract class Ingredient {
     private Integer stateRate;
 
     Ingredient() {
-        this.stateRate = (int) (Math.random() * 81);
+        this.stateRate = (int) (Math.random() * 101);
     }
 
-    public abstract void handle(Cooker cooker);
+    public void handle(Cooker cooker) {
+        cooker.cook(this);
+    }
 
     public void updateStateRate() {
+        if (state != IngredientState.OK) return;
         this.stateRate++;
-        if (stateRate >= 80) {
+        if (stateRate >= 100) {
             state = IngredientState.SPOILED;
         }
     }

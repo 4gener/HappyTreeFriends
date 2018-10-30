@@ -1,5 +1,5 @@
 package framework.ingredient;
 
 public enum IngredientState {
-    OK, SPOILED
+    OK, SPOILED, COOKED
 }
