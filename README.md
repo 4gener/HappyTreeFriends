@@ -88,7 +88,7 @@
 
   原料可食用状态变化变化（由熟变为腐烂）
 
-- **迭代器模式 Iterator**
+- **迭代器模式 Iterator :white_check_mark:**
 
   遍历容器中的食材
 
