@@ -1,4 +1,4 @@
-package main.java.com.happytreefriends.framework.merch.beverage;
+package framework.merch.beverage;
 
 public class BeefBurger {
 }

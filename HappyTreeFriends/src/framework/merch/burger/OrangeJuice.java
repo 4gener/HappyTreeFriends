@@ -1,4 +1,4 @@
-package main.java.com.happytreefriends.framework.merch.burger;
+package framework.merch.burger;
 
 public class OrangeJuice {
 }

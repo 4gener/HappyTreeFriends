@@ -1,4 +1,4 @@
-package main.java.com.happytreefriends.framework.ingredient;
+package framework.ingredient;
 
-public class Tomato {
+public class Tomato implements Ingredient {
 }

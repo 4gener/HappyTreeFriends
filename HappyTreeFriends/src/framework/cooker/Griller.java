@@ -1,4 +1,4 @@
-package main.java.com.happytreefriends.framework.cooker;
+package framework.cooker;
 
 public class Griller {
 }

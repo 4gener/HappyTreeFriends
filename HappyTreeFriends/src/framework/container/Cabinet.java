@@ -1,4 +1,4 @@
-package main.java.com.happytreefriends.framework.container;
+package framework.container;
 
 public class Cabinet {
 }
