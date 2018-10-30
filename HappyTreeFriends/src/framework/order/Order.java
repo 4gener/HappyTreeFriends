@@ -4,6 +4,9 @@ import framework.merch.Merch;
 
 import java.util.ArrayList;
 
+/**
+ * DP: Composite
+ */
 public class Order implements OrderInterface {
     private ArrayList<Merch> merches = new ArrayList<>();
 
@@ -11,9 +14,17 @@ public class Order implements OrderInterface {
         merches.add(merch);
     }
 
+    /**
+     * DP: Iterator
+     * @return
+     */
     @Override
     public double totalPrice() {
-        return 0;
+        double price = 0;
+        for (Merch merch : merches) {
+            price += merch.getPrice();
+        }
+        return price;
     }
 
     @Override
