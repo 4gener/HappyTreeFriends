@@ -10,11 +10,7 @@ public class BeefPatty extends Ingredient {
     }
 
     @Override
-    public void displayInfo() {
-        if (this.isStale()) {
-            System.out.println("一片已经变质的牛肉");
-        } else {
-            System.out.println("一片新鲜的牛肉 新鲜指数为" + this.stateRate);
-        }
+    public String getName() {
+        return "牛肉";
     }
 }

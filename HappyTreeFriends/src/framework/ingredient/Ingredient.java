@@ -10,7 +10,6 @@ import framework.time.TimeObserver;
  * Strategy
  */
 public abstract class Ingredient implements TimeObserver {
-
     private IngredientState state = new IngredientFreshState();
 
     protected Integer stateRate;
@@ -37,6 +36,7 @@ public abstract class Ingredient implements TimeObserver {
 
     /**
      * 是否过期
+     *
      * @return boolean
      */
     public boolean isStale() {
@@ -45,5 +45,15 @@ public abstract class Ingredient implements TimeObserver {
 
     public abstract IngredientType getIngredientType();
 
-    public abstract void displayInfo();
+    public abstract String getName();
+
+    public void displayInfo() {
+        if (this.isStale()) {
+            System.out.println("一片已经变质的" + this.getName());
+        } else {
+            System.out.println("一片新鲜的" + this.getName() + " 新鲜指数为" + this.stateRate);
+        }
+    }
+
+    ;
 }
