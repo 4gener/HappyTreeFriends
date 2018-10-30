@@ -35,7 +35,7 @@ public class Fridge extends Container {
     }
 
     @Override
-    protected void displayStock() {
+    public void displayStock() {
         System.out.println("冰箱里装有：");
         super.displayStock();
     }
