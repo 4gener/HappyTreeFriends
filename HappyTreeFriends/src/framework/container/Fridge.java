@@ -40,4 +40,4 @@ public class Fridge extends Container {
         super.displayStock();
     }
 }
-}
+
