@@ -33,4 +33,10 @@ public class Cabinet extends Container {
 
         return instance;
     }
+
+    @Override
+    protected void displayStock() {
+        System.out.println("橱柜里装有：");
+        super.displayStock();
+    }
 }

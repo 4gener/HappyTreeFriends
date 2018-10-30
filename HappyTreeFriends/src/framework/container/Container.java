@@ -15,7 +15,7 @@ public abstract class Container {
     Container() {
         IngredientFactory factory = new IngredientFactory();
         for (IngredientType type : availableTypes) {
-            ingredients.addAll(factory.createIngredientList(type, 5));
+            ingredients.addAll(factory.createIngredientList(type, 2));
         }
     }
 
@@ -57,5 +57,11 @@ public abstract class Container {
             }
         }
         return false;
+    }
+
+    protected void displayStock(){
+        for (Ingredient ingredient: ingredients){
+            ingredient.displayInfo();
+        }
     }
 }

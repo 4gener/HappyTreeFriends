@@ -13,7 +13,7 @@ public abstract class Ingredient implements TimeObserver {
 
     private IngredientState state = new IngredientFreshState();
 
-    private Integer stateRate;
+    protected Integer stateRate;
 
     Ingredient() {
         this.stateRate = (int) (Math.random() * 100);
@@ -44,4 +44,6 @@ public abstract class Ingredient implements TimeObserver {
     }
 
     public abstract IngredientType getIngredientType();
+
+    public abstract void displayInfo();
 }

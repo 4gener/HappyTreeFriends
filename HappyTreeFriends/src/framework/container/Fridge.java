@@ -33,4 +33,11 @@ public class Fridge extends Container {
 
         return instance;
     }
+
+    @Override
+    protected void displayStock() {
+        System.out.println("冰箱里装有：");
+        super.displayStock();
+    }
+}
 }
