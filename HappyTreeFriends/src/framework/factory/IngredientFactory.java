@@ -1,9 +1,12 @@
-package framework.ingredient;
+package framework.factory;
+
+import framework.ingredient.*;
 
 import javax.lang.model.type.ErrorType;
 
-public class IngredientFactory {
-    public Ingredient create(IngredientType ingredientType) {
+public class IngredientFactory extends Factory {
+    @Override
+    public Ingredient createIngredient(IngredientType ingredientType) {
         switch (ingredientType) {
             case BACON:
                 return new Bacon(1.0);
