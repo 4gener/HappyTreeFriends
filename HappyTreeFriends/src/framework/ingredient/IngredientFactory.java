@@ -9,20 +9,20 @@ public class IngredientFactory {
     public Ingredient createIngredient(IngredientType ingredientType) {
         switch (ingredientType) {
             case BACON:
-                return new Bacon(1.0);
+                return new Bacon();
             case TOMATO:
-                return new Tomato(0.5);
+                return new Tomato();
             case LETTUCE:
-                return new Lettuce(0.25);
+                return new Lettuce();
             case BEEF_PATTY:
-                return new BeefPatty(2.0);
+                return new BeefPatty();
             default:
                 throw new IllegalArgumentException("no such ingredient");
         }
     }
 
     public ArrayList<Ingredient> createIngredientList(IngredientType ingredientType, Integer count) {
-        ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+        ArrayList<Ingredient> ingredients = new ArrayList<>();
         for (Integer i = 0; i < count; i++) {
             ingredients.add(this.createIngredient(ingredientType));
         }
