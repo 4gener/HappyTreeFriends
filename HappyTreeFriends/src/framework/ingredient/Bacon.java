@@ -1,4 +1,7 @@
 package framework.ingredient;
 
-public class Bacon implements Ingredient {
+public class Bacon extends Ingredient {
+    public Bacon(double price) {
+        super(price);
+    }
 }
