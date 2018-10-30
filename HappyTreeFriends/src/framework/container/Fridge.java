@@ -1,6 +1,5 @@
 package framework.container;
 
-import framework.ingredient.Ingredient;
 import framework.ingredient.IngredientType;
 
 import java.util.ArrayList;
