@@ -24,6 +24,7 @@ public final class Chef implements ChefCommand {
             instance = new Chef();
         }
 
+        System.out.println("大厨，准备开工啦！");
         return instance;
     }
 

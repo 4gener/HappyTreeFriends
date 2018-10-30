@@ -21,6 +21,7 @@ public class Fridge extends Container {
         } else {
             throw new IllegalStateException("Already initialized.");
         }
+        System.out.println("你的厨房里有一台冰箱！");
     }
 
     private static Fridge instance;
