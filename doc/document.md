@@ -108,6 +108,20 @@
 
 ### 3.6 迭代器模式 Iterator
 
+- **totalPrice()**
+
+  遍历所有商品，返回商品的总价格。
+
+  ```java
+   public double totalPrice() {
+          double price = 0;
+          for (Merch merch : merches) {
+              price += merch.getPrice();
+          }
+          return price;
+      }
+  ```
+
 
 
 ### 3.7 状态模式 State
@@ -199,6 +213,16 @@
 
 
 ### 3.20 组合模式 Composite
+
+- **add(Merch merch)**
+
+  订单的行为，向订单中增加商品，商品类型是merch，merch又有Coke和Burger两个子类。
+
+  ```java
+  public void add(Merch merch) {
+          merches.add(merch);
+      }
+  ```
 
 
 
