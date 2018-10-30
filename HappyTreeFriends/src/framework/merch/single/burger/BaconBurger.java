@@ -1,8 +1,6 @@
-package framework.merch.burger;
+package framework.merch.single.burger;
 
 import framework.ingredient.IngredientType;
-import framework.merch.Merch;
-import framework.merch.MerchType;
 
 import java.util.ArrayList;
 

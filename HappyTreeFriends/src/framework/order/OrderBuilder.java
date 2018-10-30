@@ -23,7 +23,7 @@ public class OrderBuilder {
     public void orderBurger(MerchType type) {
         try {
             MerchFactory factory = MerchFactoryMaker.create(MerchFactoryMaker.MerchFactoryType.BURGER);
-            merches.add(factory.createMerch(type));
+            merches.add(factory.createSingleOrder(type));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -37,17 +37,20 @@ public class OrderBuilder {
     public void orderBeverage(MerchType type) {
         try {
             MerchFactory factory = MerchFactoryMaker.create(MerchFactoryMaker.MerchFactoryType.BEVERAGE);
-            merches.add(factory.createMerch(type));
+            merches.add(factory.createSingleOrder(type));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
+    /**
+     * 点套餐
+     * @param type
+     */
     public void orderSet(MerchType type) {
         try {
-            // todo
-//            MerchFactory factory = MerchFactoryMaker.create(MerchFactoryMaker.MerchFactoryType.SET);
-//            merches.add(factory.createMerch(type));
+            MerchFactory factory = MerchFactoryMaker.create(MerchFactoryMaker.MerchFactoryType.SET);
+            merches.add(factory.createSingleOrder(type));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

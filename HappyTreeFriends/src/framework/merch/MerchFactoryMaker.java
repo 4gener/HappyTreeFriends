@@ -13,8 +13,7 @@ public class MerchFactoryMaker {
     public static MerchFactory create(MerchFactoryType type) {
         switch (type) {
             case SET:
-                // todo
-//                return null;
+                return new SetFactory();
             case BURGER:
                 return new BurgerFactory();
             case BEVERAGE:

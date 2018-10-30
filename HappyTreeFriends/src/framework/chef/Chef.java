@@ -1,10 +1,12 @@
 package framework.chef;
 
+import framework.order.Order;
+
 /**
  * DP:
  *   Singleton
  */
-public final class Chef {
+public final class Chef implements ChefCommand {
     private Chef() {
         if (instance == null) {
             instance = this;
@@ -21,5 +23,10 @@ public final class Chef {
         }
 
         return instance;
+    }
+
+    @Override
+    public void processOrder(Order order) {
+        // todo
     }
 }

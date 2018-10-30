@@ -1,9 +1,11 @@
 package framework.merch;
 
 import framework.ingredient.IngredientType;
-import framework.merch.burger.BaconBurger;
-import framework.merch.burger.BeefBurger;
-import framework.merch.burger.DeluxeBurger;
+import framework.merch.set.Set;
+import framework.merch.single.SingleOrder;
+import framework.merch.single.burger.BaconBurger;
+import framework.merch.single.burger.BeefBurger;
+import framework.merch.single.burger.DeluxeBurger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +15,7 @@ import java.util.Arrays;
  */
 class BurgerFactory extends MerchFactory {
     @Override
-    public Merch createMerch(MerchType merchType) {
+    public SingleOrder createSingleOrder(MerchType merchType) {
         switch (merchType) {
             case BEEF_BURGER:
                 return new BeefBurger(
@@ -40,5 +42,10 @@ class BurgerFactory extends MerchFactory {
             default:
                 throw new IllegalArgumentException("no such burger in factory");
         }
+    }
+
+    @Override
+    public Set createSet(MerchType merchType) {
+        return null;
     }
 }

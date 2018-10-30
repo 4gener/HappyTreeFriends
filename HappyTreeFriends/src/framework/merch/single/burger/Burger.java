@@ -1,12 +1,12 @@
-package framework.merch.burger;
+package framework.merch.single.burger;
 
 import framework.ingredient.IngredientType;
 import framework.merch.Merch;
-import framework.merch.MerchType;
+import framework.merch.single.SingleOrder;
 
 import java.util.ArrayList;
 
-public abstract class Burger extends Merch {
+public abstract class Burger extends SingleOrder {
     private ArrayList<IngredientType> requirments = new ArrayList<>();
 
     Burger(ArrayList<IngredientType> requirments, double price) {
