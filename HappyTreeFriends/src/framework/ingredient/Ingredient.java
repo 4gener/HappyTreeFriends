@@ -1,18 +1,21 @@
 package framework.ingredient;
 
 import framework.cooker.Cooker;
+import framework.ingredient.state.IngredientFreshState;
+import framework.ingredient.state.IngredientStaleState;
+import framework.ingredient.state.IngredientState;
 
 /**
  * Strategy
  */
 public abstract class Ingredient {
 
-    private IngredientState state = IngredientState.OK;
+    private IngredientState state = new IngredientFreshState();
 
     private Integer stateRate;
 
     Ingredient() {
-        this.stateRate = (int) (Math.random() * 101);
+        this.stateRate = (int) (Math.random() * 100);
     }
 
     public void handle(Cooker cooker) {
@@ -20,15 +23,19 @@ public abstract class Ingredient {
     }
 
     public void updateStateRate() {
-        if (state != IngredientState.OK) return;
+        if (isStale()) return;
         this.stateRate++;
         if (stateRate >= 100) {
-            state = IngredientState.SPOILED;
+            state = new IngredientStaleState();
         }
     }
 
-    public boolean isStateOK() {
-        return (state == IngredientState.OK);
+    /**
+     * 是否过期
+     * @return boolean
+     */
+    public boolean isStale() {
+        return state.isStale(this);
     }
 
     public abstract IngredientType getIngredientType();
