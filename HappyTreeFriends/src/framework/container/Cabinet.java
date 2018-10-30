@@ -1,14 +1,23 @@
 package framework.container;
 
 import framework.ingredient.Ingredient;
+import framework.ingredient.IngredientType;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * DP:
  * Singleton
+ * Strategy
  */
-public class Cabinet implements Container {
+public class Cabinet extends Container {
 
     private Cabinet() {
+        this.availableTypes = new ArrayList<>(Arrays.asList(
+                IngredientType.LETTUCE,
+                IngredientType.TOMATO));
+
         if (instance == null) {
             instance = this;
         } else {
@@ -24,16 +33,5 @@ public class Cabinet implements Container {
         }
 
         return instance;
-    }
-
-
-    @Override
-    public void put(Ingredient ingredient) {
-
-    }
-
-    @Override
-    public Ingredient fetch(Ingredient ingredient) {
-        return null;
     }
 }
