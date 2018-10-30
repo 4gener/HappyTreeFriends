@@ -2,8 +2,9 @@ package framework.factory;
 
 import framework.ingredient.*;
 
-import javax.lang.model.type.ErrorType;
-
+/**
+ * Factory Pattern
+ */
 public class IngredientFactory extends Factory {
     @Override
     public Ingredient createIngredient(IngredientType ingredientType) {

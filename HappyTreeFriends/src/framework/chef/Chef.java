@@ -1,5 +1,8 @@
 package framework.chef;
 
+/**
+ * Singleton Pattern
+ */
 public final class Chef {
     private Chef() {
         if (instance == null) {
