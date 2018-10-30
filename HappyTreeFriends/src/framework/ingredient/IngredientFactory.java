@@ -1,5 +1,7 @@
 package framework.ingredient;
 
+import java.util.ArrayList;
+
 /**
  * Factory Pattern
  */
@@ -17,5 +19,13 @@ public class IngredientFactory {
             default:
                 throw new IllegalArgumentException("no such ingredient");
         }
+    }
+
+    public ArrayList<Ingredient> createIngredientList(IngredientType ingredientType, Integer count) {
+        ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+        for (Integer i = 0; i < count; i++) {
+            ingredients.add(this.createIngredient(ingredientType));
+        }
+        return ingredients;
     }
 }
