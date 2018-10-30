@@ -2,9 +2,9 @@ package framework.merch;
 
 import framework.merch.beverage.Coke;
 
-class BeverageFactory extends MerchFactor {
+class BeverageFactory extends MerchFactory {
     @Override
-    Merch createMerch(MerchType merchType) {
+    public Merch createMerch(MerchType merchType) {
         switch (merchType) {
             case COKE:
                 return new Coke(1.5);

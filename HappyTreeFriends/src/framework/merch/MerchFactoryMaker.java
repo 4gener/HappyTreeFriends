@@ -10,9 +10,11 @@ public class MerchFactoryMaker {
         SET
     }
 
-    public static MerchFactor create(MerchFactoryType type) {
+    public static MerchFactory create(MerchFactoryType type) {
         switch (type) {
             case SET:
+                // todo
+//                return null;
             case BURGER:
                 return new BurgerFactory();
             case BEVERAGE:

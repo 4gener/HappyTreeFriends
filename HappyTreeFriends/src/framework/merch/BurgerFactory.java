@@ -5,14 +5,13 @@ import framework.merch.burger.BaconBurger;
 import framework.merch.burger.BeefBurger;
 import framework.merch.burger.DeluxeBurger;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
  * DP: Factory
  */
-class BurgerFactory extends MerchFactor {
+class BurgerFactory extends MerchFactory {
     @Override
     public Merch createMerch(MerchType merchType) {
         switch (merchType) {
