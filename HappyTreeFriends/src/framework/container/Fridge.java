@@ -9,7 +9,6 @@ import java.util.Arrays;
 /**
  * DP:
  * Singleton
- * Strategy
  */
 public class Fridge extends Container {
 
