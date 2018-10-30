@@ -1,4 +1,10 @@
 package framework.cooker;
 
-public class Griller {
+import framework.ingredient.Ingredient;
+
+public class Griller extends Cooker {
+    @Override
+    public void cook(Ingredient ingredient) {
+
+    }
 }
