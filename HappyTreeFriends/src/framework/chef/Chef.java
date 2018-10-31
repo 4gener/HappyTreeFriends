@@ -59,6 +59,11 @@ public final class Chef implements ChefCommand {
         }
     }
 
+    /**
+     * DP：Facade
+     * 对外只提供处理订单接口，内部实现处理的逻辑是取食材、加工、整合。。。
+     * @param order
+     */
     @Override
     public void processOrder(Order order) {
         System.out.println("大厨，你刚刚接到了新订单！");
