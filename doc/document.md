@@ -192,6 +192,9 @@ public class MerchFactoryMaker {
   }
   ```
 
+- **原料工厂**
+
+  创建了工厂类IngredientFactory，生成基于IngredientType信息的实体类的对象。
 
 
 ### 3.4 模板模式 Template
@@ -293,19 +296,17 @@ public abstract class Cooker {
 
 #### 3.6.4 API描述
 
-- **totalPrice()**
+totalPrice()遍历所有商品，返回商品的总价格。
 
-  遍历所有商品，返回商品的总价格。
-
-  ```java
-   public double totalPrice() {
-          double price = 0;
-          for (Merch merch : merches) {
-              price += merch.getPrice();
-          }
-          return price;
-      }
-  ```
+```java
+ public double totalPrice() {
+        double price = 0;
+        for (Merch merch : merches) {
+            price += merch.getPrice();
+        }
+        return price;
+    }
+```
 
 
 
@@ -378,8 +379,6 @@ public interface ChefCommand {
 
 #### 3.9.4 API描述
 
-- **TrayDecorator(Order order)**
-
 这种模式创建了一个装饰类TrayDecorator，用来实现接口 OrderInterface，
 
 ```java
@@ -420,9 +419,7 @@ public interface ChefCommand {
 
 #### 3.10.4 API描述
 
-- **setCooker(Cooker cooker)**
-
-  设置处理食材的厨具
+设置处理食材的厨具
 
 ```java
  protected void setCooker(Cooker cooker) {
@@ -554,8 +551,33 @@ public Order order() {
 
 #### 3.14.4 API描述
 
-```java
+定义了工厂类IngredientStateFactory来获取IngredientState对象，向IngredientStateFactory传递信息以便获取它所需状态对象。
 
+```java
+public class IngredientStateFactory {
+    private static HashMap<IngredientStateType, IngredientState> map = new HashMap<>();
+
+    public static IngredientState getState(IngredientStateType type) {
+        IngredientState state = map.get(type);
+        if (state == null) {
+            switch (type) {
+                case FRESH:
+                    state = new IngredientFreshState();
+                    map.put(type, state);
+                    break;
+                case STALE:
+                    state = new IngredientStaleState();
+                    map.put(type, state);
+                    break;
+                case COOKED:
+                    state = new IngredientCookedState();
+                    map.put(type, state);
+                    break;
+            }
+        }
+        return state;
+    }
+}
 ```
 
 
