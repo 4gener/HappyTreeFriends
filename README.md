@@ -46,25 +46,27 @@
 
 - **商品 Merch**
 
-- **汉堡 Burger**
+  - **单点**
 
-  汉堡分为：牛肉汉堡(BeefBurger)，培根汉堡(BaconBurger)，双拼豪华汉堡(DeluxeBurger)。
+    - **汉堡 Burger**
 
-  属性：
+      汉堡分为：牛肉汉堡(BeefBurger)，培根汉堡(BaconBurger)，双拼豪华汉堡(DeluxeBurger)。
 
-  - 所需食材列表
-  - 价格
+      属性：
 
-- **饮品 Beverage**
-  饮品分为：可乐(Coke)，橙汁(OrangeJuice)。
+      - 所需食材列表
+      - 价格
 
-- **套餐 Set**
+    - **饮品 Beverage**
+      饮品分为：可乐(Coke)，橙汁(OrangeJuice)。
 
-  属性：
+  - **套餐 Set**
 
-  - 商品列表
+    属性：
 
+    - 商品列表
 
+* **订单 Order**
 
 ### Design Pattern
 
@@ -146,9 +148,11 @@
 
   下单时虽然目标是商品本身，但是实际实现是通过订单中添加商品
 
-- **空对象模式 Null Object**
+- **空对象模式 Null Object** :white_check_mark:
 
-  制作汉堡时有可能遇到原料不足的状态，在创建汉堡实体时使用
+  ~~制作汉堡时有可能遇到原料不足的状态，在创建汉堡实体时使用~~
+
+  在创建订单时，有可能出现指定的商品不存在，直接返回一个空商品（价格为0）
 
 - **组合模式 Composite** ✅
 

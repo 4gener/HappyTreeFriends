@@ -1,7 +1,7 @@
 package framework.merch;
 
 /**
- * Abstract Factory
+ * Abstract Factory, Null Object
  */
 public class MerchFactoryMaker {
     public enum MerchFactoryType {
@@ -19,7 +19,7 @@ public class MerchFactoryMaker {
             case BEVERAGE:
                 return new BeverageFactory();
             default:
-                throw new IllegalArgumentException("no such merch factory.");
+                return new NullMerchFactory();
         }
     }
 }
