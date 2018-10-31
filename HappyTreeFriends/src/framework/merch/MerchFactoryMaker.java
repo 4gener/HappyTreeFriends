@@ -7,7 +7,8 @@ public class MerchFactoryMaker {
     public enum MerchFactoryType {
         BEVERAGE,
         BURGER,
-        SET
+        SET,
+        NULL
     }
 
     public static MerchFactory create(MerchFactoryType type) {

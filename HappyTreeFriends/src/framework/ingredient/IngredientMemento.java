@@ -1,4 +1,4 @@
 package framework.ingredient;
 
-interface IngredientMemento {}
+public interface IngredientMemento {}
 

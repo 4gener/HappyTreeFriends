@@ -16,27 +16,27 @@
 
 | 编号 | Design pattern name           | 实现个（套）数 | sample programs个数 | 备注 |
 | ---- | ----------------------------- | -------------- | ------------------- | ---- |
-| 1    | 单例模式 Singleton            |                |                     |      |
-| 2    | 抽象工厂模式 Abstract Factory |                |                     |      |
-| 3    | 工厂模式 Factory              |                |                     |      |
-| 4    | 模板模式 Template             |                |                     |      |
-| 5    | 观察者模式 Observer           |                |                     |      |
-| 6    | 迭代器模式 Iterator           |                |                     |      |
-| 7    | 状态模式 State                |                |                     |      |
-| 8    | 命令模式 Command              |                |                     |      |
-| 9    | 装饰器模式 Decorator          |                |                     |      |
-| 10   | 策略模式 Strategy             |                |                     |      |
-| 11   | 建造者模式 Builder            |                |                     |      |
-| 12   | 桥接模式 Bridge               |                |                     |      |
+| 1    | 单例模式 Singleton            | 3              | 2                   |      |
+| 2    | 抽象工厂模式 Abstract Factory | 1              | 2                   |      |
+| 3    | 工厂模式 Factory              | 2              | 2                   |      |
+| 4    | 模板模式 Template             | 1              | 1                   |      |
+| 5    | 观察者模式 Observer           | 1              | 2                   |      |
+| 6    | 迭代器模式 Iterator           | 2              | 1                   |      |
+| 7    | 状态模式 State                | 1              | 1                   |      |
+| 8    | 命令模式 Command              | 1              | 1                   |      |
+| 9    | 装饰器模式 Decorator          | 1              | 1                   |      |
+| 10   | 策略模式 Strategy             | 1              | 1                   |      |
+| 11   | 建造者模式 Builder            | 1              | 2                   |      |
+| 12   | 桥接模式 Bridge               | 1              | 1                   |      |
 | 13   | 中介者模式 Mediator           |                |                     |      |
-| 14   | 外观模式 Facade               |                |                     |      |
-| 15   | 享元模式 Flyweight            |                |                     |      |
-| 16   | 原型模式 Prototype            |                |                     |      |
-| 17   | 备忘录模式 Memento            |                |                     |      |
+| 14   | 外观模式 Facade               | 1              | 2                   |      |
+| 15   | 享元模式 Flyweight            | 1              | 1                   |      |
+| 16   | 原型模式 Prototype            | 1              | 1                   |      |
+| 17   | 备忘录模式 Memento            | 1              | 1                   |      |
 | 18   | 代理模式 Proxy                |                |                     |      |
-| 19   | 空对象模式 Null Object        |                |                     |      |
-| 20   | 组合模式 Composite            |                |                     |      |
-| 21   | 访问者模式 Visitor            |                |                     |      |
+| 19   | 空对象模式 Null Object        | 2              | 1                   |      |
+| 20   | 组合模式 Composite            | 1              | 1                   |      |
+| 21   | 访问者模式 Visitor            | 1              | 1                   |      |
 
 
 

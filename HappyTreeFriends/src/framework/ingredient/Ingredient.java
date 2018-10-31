@@ -3,6 +3,7 @@ package framework.ingredient;
 import framework.cooker.Cooker;
 import framework.ingredient.state.*;
 import framework.time.TimeObserver;
+import framework.time.Timer;
 
 /**
  * Strategy, Prototype, Memento
@@ -23,6 +24,7 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
     Ingredient(double stateUpdateRate) {
         this.stateRate = Math.random() * 100;
         this.baseStateUpdateRate = stateUpdateRate;
+        Timer.getInstance().addObserver(this);
     }
 
     private Cooker cooker;
@@ -32,7 +34,7 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
      * DP: Strategy
      * @param cooker
      */
-    protected void setCooker(Cooker cooker) {
+    public void setCooker(Cooker cooker) {
         this.cooker = cooker;
     }
 
@@ -78,6 +80,7 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
         Object clone = null;
         try {
             clone = super.clone();
+            Timer.getInstance().addObserver((TimeObserver) clone);
         } catch (CloneNotSupportedException e) {
             System.out.println(e.getMessage());
         }
