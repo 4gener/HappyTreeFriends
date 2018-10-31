@@ -16,11 +16,16 @@ public abstract class Cooker {
         return Arrays.asList(availableTypes).contains(type);
     }
 
-    public void cook(Ingredient ingredient) {
+    public final void cook(Ingredient ingredient) {
         if (!(this.isIngredientTypeLegal(ingredient.getIngredientType()))) {
             throw new IllegalArgumentException("this ingredient doesn't belong here");
         }
+        startCooking(ingredient);
+        finishCooking(ingredient);
     }
+
+    abstract void startCooking(Ingredient ingredient);
+    abstract void finishCooking(Ingredient ingredient);
 
     public abstract String getName();
 }

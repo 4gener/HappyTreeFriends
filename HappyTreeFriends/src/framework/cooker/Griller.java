@@ -20,9 +20,12 @@ public class Griller extends Cooker {
     }
 
     @Override
-    public void cook(Ingredient ingredient) {
-        super.cook(ingredient);
-        System.out.println("开始烧烤...");
+    void startCooking(Ingredient ingredient) {
+        System.out.println("开始烧烤" + ingredient.getName() + "...");
+    }
+
+    @Override
+    void finishCooking(Ingredient ingredient) {
         ingredient.changeState(IngredientStateType.COOKED);
         System.out.println("你成功地使用" + this.getName() + "加工好了" + ingredient.getName());
     }
