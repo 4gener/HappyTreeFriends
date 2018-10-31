@@ -1,11 +1,13 @@
 package framework.ingredient;
 
-import framework.cooker.Cooker;
+
+import framework.cooker.CounterTop;
 
 public class Tomato extends Ingredient {
 
     Tomato(double baseStateUpdateRate) {
         super(baseStateUpdateRate);
+        this.setCooker(new CounterTop());
     }
 
     @Override

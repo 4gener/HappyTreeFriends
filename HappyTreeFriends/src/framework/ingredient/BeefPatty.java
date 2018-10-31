@@ -1,10 +1,12 @@
 package framework.ingredient;
 
 import framework.cooker.Cooker;
+import framework.cooker.Griller;
 
 public class BeefPatty extends Ingredient {
     BeefPatty(double baseStateUpdateRate) {
         super(baseStateUpdateRate);
+        this.setCooker(new Griller());
     }
 
     @Override

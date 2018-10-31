@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CounterTop extends Cooker {
-    private CounterTop() {
+    public CounterTop() {
         this.availableTypes = new ArrayList<>(Arrays.asList(
                 IngredientType.TOMATO,
                 IngredientType.LETTUCE));

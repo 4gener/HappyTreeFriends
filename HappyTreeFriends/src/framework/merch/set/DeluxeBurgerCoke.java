@@ -14,4 +14,14 @@ public class DeluxeBurgerCoke extends Set {
                 MerchFactoryMaker.create(MerchFactoryMaker.MerchFactoryType.BEVERAGE).createSingleOrder(MerchType.COKE)
         )));
     }
+
+    @Override
+    public String getName() {
+        return "豪华汉堡套餐";
+    }
+
+    @Override
+    public void handle() {
+
+    }
 }

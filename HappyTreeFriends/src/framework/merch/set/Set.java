@@ -5,7 +5,7 @@ import framework.merch.single.SingleOrder;
 
 import java.util.ArrayList;
 
-public class Set extends Merch {
+public abstract class Set extends Merch {
     private ArrayList<SingleOrder> merchComposite = new ArrayList<>();
 
     Set(ArrayList<SingleOrder> merchComposite) {
@@ -16,4 +16,10 @@ public class Set extends Merch {
         this.merchComposite.addAll(merchComposite);
     }
 
+    @Override
+    public void handle() {
+        for (Merch merch : merchComposite) {
+            merch.handle();
+        }
+    }
 }

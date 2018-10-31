@@ -1,9 +1,7 @@
 package framework.chef;
 
-import framework.container.Cabinet;
-import framework.container.Fridge;
+import framework.container.Container;
 
 public interface ChefVisitor {
-    void visit(Cabinet cabinet);
-    void visit(Fridge fridge);
+    void visit(Container container);
 }

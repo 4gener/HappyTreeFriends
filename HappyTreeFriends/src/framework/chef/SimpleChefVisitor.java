@@ -1,7 +1,7 @@
 package framework.chef;
 
 import framework.container.Cabinet;
-import framework.container.Fridge;
+import framework.container.Container;
 import framework.ingredient.Ingredient;
 
 /**
@@ -9,18 +9,12 @@ import framework.ingredient.Ingredient;
  */
 public class SimpleChefVisitor implements ChefVisitor {
     @Override
-    public void visit(Fridge fridge) {
-        System.out.println("冰箱里装有：");
-        for (Ingredient ingredient: fridge.getIngredients()) {
+    public void visit(Container container) {
+        System.out.println(container.getName() + "里装有：");
+        for (Ingredient ingredient : container.getIngredients()) {
             ingredient.displayInfo();
         }
+        System.out.println();
     }
 
-    @Override
-    public void visit(Cabinet cabinet) {
-        System.out.println("橱柜里装有：");
-        for (Ingredient ingredient: cabinet.getIngredients()) {
-            ingredient.displayInfo();
-        }
-    }
 }

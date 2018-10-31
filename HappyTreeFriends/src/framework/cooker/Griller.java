@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Griller extends Cooker {
-    private Griller() {
+    public Griller() {
         this.availableTypes = new ArrayList<>(Arrays.asList(
                 IngredientType.BACON,
                 IngredientType.BEEF_PATTY));

@@ -13,16 +13,15 @@ import java.util.Arrays;
 public class Fridge extends Container {
 
     private Fridge() {
-        this.availableTypes = new ArrayList<>(Arrays.asList(
+        super(new ArrayList<>(Arrays.asList(
                 IngredientType.BEEF_PATTY,
-                IngredientType.BACON));
+                IngredientType.BACON)));
 
         if (instance == null) {
             instance = this;
         } else {
             throw new IllegalStateException("Already initialized.");
         }
-        System.out.println("你的厨房里有一台冰箱！");
     }
 
     private static Fridge instance;
@@ -33,6 +32,10 @@ public class Fridge extends Container {
         }
 
         return instance;
+    }
+
+    public String getName() {
+        return "冰箱";
     }
 
     @Override

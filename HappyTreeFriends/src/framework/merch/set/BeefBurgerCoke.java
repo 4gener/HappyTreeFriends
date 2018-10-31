@@ -14,4 +14,9 @@ public class BeefBurgerCoke extends Set {
                 MerchFactoryMaker.create(MerchFactoryMaker.MerchFactoryType.BEVERAGE).createSingleOrder(MerchType.COKE)
         )));
     }
+
+    @Override
+    public String getName() {
+        return "牛肉汉堡套餐";
+    }
 }

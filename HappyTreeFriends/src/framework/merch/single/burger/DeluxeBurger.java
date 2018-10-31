@@ -8,4 +8,9 @@ public class DeluxeBurger extends Burger {
     public DeluxeBurger(ArrayList<IngredientType> requirements, double price) {
         super(requirements, price);
     }
+
+    @Override
+    public String getName() {
+        return "豪华双拼汉堡";
+    }
 }

@@ -1,10 +1,11 @@
 package framework.ingredient;
 
-import framework.cooker.Cooker;
+import framework.cooker.Griller;
 
 public class Bacon extends Ingredient {
     Bacon(double baseStateUpdateRate) {
         super(baseStateUpdateRate);
+        this.setCooker(new Griller());
     }
 
     @Override

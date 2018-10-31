@@ -13,7 +13,7 @@ public abstract class Cooker {
     protected ArrayList<IngredientType> availableTypes = new ArrayList<IngredientType>();
 
     private boolean isIngredientTypeLegal(IngredientType type) {
-        return Arrays.asList(availableTypes).contains(type);
+        return availableTypes.contains(type);
     }
 
     public final void cook(Ingredient ingredient) {
@@ -25,6 +25,7 @@ public abstract class Cooker {
     }
 
     abstract void startCooking(Ingredient ingredient);
+
     abstract void finishCooking(Ingredient ingredient);
 
     public abstract String getName();

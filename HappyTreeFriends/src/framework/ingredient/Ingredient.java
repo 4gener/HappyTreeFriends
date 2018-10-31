@@ -32,7 +32,7 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
      * DP: Strategy
      * @param cooker
      */
-    public void setCooker(Cooker cooker) {
+    protected void setCooker(Cooker cooker) {
         this.cooker = cooker;
     }
 
@@ -88,9 +88,9 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
 
     public void displayInfo() {
         if (this.isStale()) {
-            System.out.println("一片已经变质的" + this.getName());
+            System.out.println("  一片已经变质的" + this.getName());
         } else {
-            System.out.println("一片新鲜的" + this.getName() + " 新鲜指数为" + this.stateRate);
+            System.out.println("  一片新鲜的" + this.getName() + " 新鲜指数为" + this.stateRate);
         }
     }
 

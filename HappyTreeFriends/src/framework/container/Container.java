@@ -6,25 +6,26 @@ import framework.ingredient.IngredientFactory;
 import framework.ingredient.IngredientType;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * DP Visitor
  */
 public abstract class Container {
-    ArrayList<Ingredient> ingredients;
+    ArrayList<Ingredient> ingredients = new ArrayList<>();
 
-    protected ArrayList<IngredientType> availableTypes = new ArrayList<IngredientType>();
+    protected ArrayList<IngredientType> availableTypes = new ArrayList<>();
 
-    Container() {
+    Container(ArrayList<IngredientType> types) {
+        System.out.println("你的厨房里有一台" + this.getName());
+        availableTypes = types;
         IngredientFactory factory = new IngredientFactory();
-        for (IngredientType type : availableTypes) {
+        for (IngredientType type : types) {
             ingredients.addAll(factory.createIngredientList(type, 2));
         }
     }
 
     private boolean isIngredientTypeLegal(IngredientType type) {
-        return Arrays.asList(availableTypes).contains(type);
+        return availableTypes.contains(type);
     }
 
     public void put(Ingredient ingredient) {
@@ -36,6 +37,7 @@ public abstract class Container {
     }
 
     public Ingredient fetch(IngredientType type) {
+
         if (!(this.isIngredientTypeLegal(type))) {
             throw new IllegalArgumentException("this ingredient doesn't belong here");
         }
@@ -56,10 +58,11 @@ public abstract class Container {
 
         for (Ingredient ingredient : ingredients) {
             if (ingredient.getIngredientType() == type) {
-                ingredients.remove(ingredient);
+                System.out.println(this.getName() + " 中有你想要的 " + ingredient.getName());
                 return true;
             }
         }
+        System.out.println("Oops，" + this.getName() + " 中没有你想要的 " + type);
         return false;
     }
 
@@ -68,4 +71,6 @@ public abstract class Container {
     }
 
     public abstract void accept(ChefVisitor visitor);
+
+    public abstract String getName();
 }
