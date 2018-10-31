@@ -108,7 +108,7 @@
 
   菜品装盘
 
-- **策略模式 Strategy** WIP
+- **策略模式 Strategy** :white_check_mark:
 
   处理原材料的时候，不同材料需要使用不同的厨具进行处理。
 
@@ -134,7 +134,7 @@
 
   食材的状态对象（State）只需要创建一次，以后共享同一个对象。
 
-- **原型模式 Prototype**
+- **原型模式 Prototype** :white_check_mark:
 
   厨师可以补充原材料，此处可用现有原材料进行克隆
 
