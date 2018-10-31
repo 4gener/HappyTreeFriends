@@ -197,6 +197,7 @@ public class MerchFactoryMaker {
   创建了工厂类IngredientFactory，生成基于IngredientType信息的实体类的对象。
 
 
+
 ### 3.4 模板模式 Template
 
 #### 3.4.1 模式简介
@@ -256,8 +257,6 @@ public abstract class Cooker {
 ![](..\UMLDiagrams\DesignPatternView\Observer_11.png)
 
 #### 3.5.4 API描述
-
-
 
 ```java
 	private ArrayList<TimeObserver> observers = new ArrayList<>();
@@ -515,8 +514,26 @@ public Order order() {
 
 #### 3.12.4 API描述
 
-```java
+OrderInterface接口作为桥接实现，订单价格根据内部商品计算。
 
+```java
+public interface OrderInterface {
+
+    double totalPrice();
+
+    boolean hasTray();
+
+    void displayMerches();
+
+
+}
+public double totalPrice() {
+        double price = 0;
+        for (Merch merch : merches) {
+            price += merch.getPrice();
+        }
+        return price;
+    }
 ```
 
 
@@ -533,8 +550,17 @@ public Order order() {
 
 #### 3.13.4 API描述
 
-```java
+对外只提供处理订单接口，内部实现处理的逻辑是取食材、加工、整合。
 
+```java
+ public void processOrder(Order order) {
+        System.out.println("大厨，你刚刚接到了新订单！");
+        order.displayMerches();
+        order.handle();
+        TrayDecorator decorator = new TrayDecorator(order);
+        decorator.displayMerches();
+        System.out.println("\n订单完成啦！");
+    }
 ```
 
 
@@ -593,7 +619,16 @@ public class IngredientStateFactory {
 #### 3.15.4 API描述
 
 ```java
-
+public Object clone() throws CloneNotSupportedException {
+        Object clone = null;
+        try {
+            clone = super.clone();
+            Timer.getInstance().addObserver((TimeObserver) clone);
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e.getMessage());
+        }
+        return clone;
+    }
 ```
 
 
