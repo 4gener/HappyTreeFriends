@@ -7,9 +7,9 @@ import framework.ingredient.state.IngredientState;
 import framework.time.TimeObserver;
 
 /**
- * Strategy
+ * Strategy, Prototype
  */
-public abstract class Ingredient implements TimeObserver {
+public abstract class Ingredient implements TimeObserver, Cloneable {
 
     private IngredientState state = new IngredientFreshState();
 
@@ -44,4 +44,15 @@ public abstract class Ingredient implements TimeObserver {
     }
 
     public abstract IngredientType getIngredientType();
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Object clone = null;
+        try {
+            clone = super.clone();
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e.getMessage());
+        }
+        return clone;
+    }
 }
