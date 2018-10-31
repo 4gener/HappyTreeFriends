@@ -99,9 +99,37 @@
 
 商品分为单点、套餐两类。创建商品时，通过抽象的商品工厂生成单点（或套餐）的工厂，再通过该工厂生成具体的商品。
 
-- **API **
+#### 3.2.3 Class diagram
 
-  创建了抽象工厂类MerchFactory，工厂类BurgerFactory和BeverageFactory都是扩展自MerchFactory。然后创建了一个工厂创造器类MerchFactoryMaker，通过传递type信息来获取工厂类型。
+
+
+#### 3.2.4 API描述
+
+创建了抽象工厂类MerchFactory，工厂类BurgerFactory、BeverageFactory等都是继承自MerchFactory。然后创建了一个工厂创造器类MerchFactoryMaker，通过传递type信息来获取工厂类型。
+
+```java
+public class MerchFactoryMaker {
+    public enum MerchFactoryType {
+        BEVERAGE,
+        BURGER,
+        SET,
+        NULL
+    }
+
+    public static MerchFactory create(MerchFactoryType type) {
+        switch (type) {
+            case SET:
+                return new SetFactory();
+            case BURGER:
+                return new BurgerFactory();
+            case BEVERAGE:
+                return new BeverageFactory();
+            default:
+                return new NullMerchFactory();
+        }
+    }
+}
+```
 
 
 
@@ -115,13 +143,54 @@
 
 生成汉堡、套餐等商品时，根据提供的商品类型生成对象。
 
-- **汉堡工厂/饮品工厂**
+#### 3.3.3 Class diagram
 
-  创建了两个工厂类BurgerFactory/BeverageFactory，生成基于MerchType信息的实体类的对象
 
-- **材料工厂**
 
-  创建了一个工厂类IngredientFactory，生成基于IngredientType信息的实体类的对象。
+#### 3.3.4 API描述
+
+- **汉堡工厂/饮品工厂/套餐工厂**
+
+  创建了工厂类BurgerFactory、BeverageFactory等，生成基于MerchType信息的实体类的对象
+
+  ```java
+  class BurgerFactory extends MerchFactory {
+      @Override
+      public SingleOrder createSingleOrder(MerchType merchType) {
+          switch (merchType) {
+              case BEEF_BURGER:
+                  return new BeefBurger(
+                          new ArrayList<>(Arrays.asList(
+                                  IngredientType.BEEF_PATTY,
+                                  IngredientType.LETTUCE,
+                                  IngredientType.TOMATO)),
+                          5);
+              case BACON_BURGER:
+                  return new BaconBurger(
+                          new ArrayList<>(Arrays.asList(
+                                  IngredientType.BACON,
+                                  IngredientType.LETTUCE,
+                                  IngredientType.TOMATO)),
+                          4);
+              case DELUXE_BURGER:
+                  return new DeluxeBurger(
+                          new ArrayList<>(Arrays.asList(
+                                  IngredientType.BEEF_PATTY,
+                                  IngredientType.BACON,
+                                  IngredientType.LETTUCE,
+                                  IngredientType.TOMATO)),
+                          8.8);
+              default:
+                  throw new IllegalArgumentException("no such burger in factory");
+          }
+      }
+  
+      @Override
+      public Set createSet(MerchType merchType) {
+          return null;
+      }
+  }
+  ```
 
 
 
@@ -135,6 +204,38 @@
 
 在烹饪过程中，具体的烹饪方法将根据不同的厨具类型来确定，因此我们采用了模板模式来将制作步骤延迟到子类中。
 
+#### 3.4.3 Class diagram
+
+
+
+#### 3.4.4 API描述
+
+CounterTop类和Giller类是扩展了Cooker的实体类，它们重写了抽象类的方法startCooking和finishCooking。
+
+```java
+public abstract class Cooker {
+    protected ArrayList<IngredientType> availableTypes = new ArrayList<IngredientType>();
+
+    private boolean isIngredientTypeLegal(IngredientType type) {
+        return availableTypes.contains(type);
+    }
+
+    public final void cook(Ingredient ingredient) {
+        if (!(this.isIngredientTypeLegal(ingredient.getIngredientType()))) {
+            throw new IllegalArgumentException("this ingredient doesn't belong here");
+        }
+        startCooking(ingredient);
+        finishCooking(ingredient);
+    }
+
+    abstract void startCooking(Ingredient ingredient);
+
+    abstract void finishCooking(Ingredient ingredient);
+
+    public abstract String getName();
+}
+```
+
 
 
 ### 3.5 观察者模式 Observer
@@ -147,6 +248,35 @@
 
 在欢乐厨房中，当系统时间发生变化时，会被食材观测到，从而影响食材的新鲜程度。
 
+#### 3.5.3 Class diagram
+
+
+
+#### 3.5.4 API描述
+
+
+
+```java
+	private ArrayList<TimeObserver> observers = new ArrayList<>();
+
+    /**
+     * 更新内部时间，加快历史的进程
+     */
+    public void tick() {
+        for (TimeObserver o : observers) {
+            o.update();
+        }
+    }
+
+    public void addObserver(TimeObserver o) {
+        observers.add(o);
+    }
+
+    public void removeObserver(TimeObserver o) {
+        observers.remove(o);
+    }
+```
+
 
 
 ### 3.6 迭代器模式 Iterator
@@ -158,6 +288,12 @@
 #### 3.6.2 应用场景
 
 我们使用了迭代器模式来提供方法遍历容器中的食材。此外，订单总价实际上为订单内部所有汉堡或套餐价格相加的总价，也采用了迭代器模式。
+
+#### 3.6.3 Class diagram
+
+
+
+#### 3.6.4 API描述
 
 - **totalPrice()**
 
@@ -185,6 +321,22 @@
 
 食材的状态（生、熟、腐烂）会影响它的行为，决定它是否可以被加入菜品。
 
+#### 3.7.3 Class diagram
+
+
+
+#### 3.7.4 API描述
+
+创建了IngredientState接口和实现了接口的实体类IngredientCookedState、IngredientFreshState等。
+
+```java
+public interface IngredientState {
+    public abstract boolean isStale(Ingredient ingredient);
+
+    public abstract boolean isCooked(Ingredient ingredient);
+}
+```
+
 
 
 ### 3.8 命令模式 Command
@@ -197,6 +349,21 @@
 
 厨师可以对食材和菜品进行操作，包括处理食材、制作菜品等等。
 
+#### 3.8.3 Class diagram
+
+
+
+#### 3.8.4 API描述
+
+创建了作为命令的接口ChefCommand，而实体类Chef实现了ChefCommand接口。
+
+```java
+public interface ChefCommand {
+    void showStock();
+    void processOrder(Order order);
+}
+```
+
 
 
 ### 3.9 装饰器模式 Decorator
@@ -206,6 +373,14 @@
 装饰器模式（Decorator Pattern）允许向一个现有的对象添加新的功能，同时又不改变其结构。这种类型的设计模式属于结构型模式，它是作为现有的类的一个包装。
 
 #### 3.9.2 应用场景
+
+菜品装盘
+
+#### 3.9.3 Class diagram
+
+
+
+#### 3.9.4 API描述
 
 - **TrayDecorator(Order order)**
 
@@ -243,6 +418,12 @@
 
 处理原材料的时候，不同材料需要使用不同的厨具（Strategy），从而烹饪的方法也不同。
 
+#### 3.10.3 Class diagram
+
+
+
+#### 3.10.4 API描述
+
 - **setCooker(Cooker cooker)**
 
   设置处理食材的厨具
@@ -264,6 +445,12 @@
 #### 3.11.2 应用场景
 
 在创建订单的过程中，汉堡、饮料或套餐的选择顺序对订单的最终产出没有影响。
+
+#### 3.11.3 Class diagram
+
+
+
+#### 3.11.4 API描述
 
 创建了 OrderBuilder 类，其中包含带有 Merch 的 ArrayList 以及根据 MerchType 创建不同类型的Order对象。
 
@@ -331,6 +518,16 @@ public Order order() {
 #### 3.12.2 应用场景
 当原料盛放在容器中时，容器在检测原料的可食用状态变化时实际上使用的是原料的内部方法；此外在订单部分，我们在计算订单总价的时候也使用了订单内部食物内部的抽象方法来获取食物的单价。
 
+#### 3.12.3 Class diagram
+
+
+
+#### 3.12.4 API描述
+
+```java
+
+```
+
 
 
 ### 3.13 外观模式 Facade
@@ -338,6 +535,16 @@ public Order order() {
 外观模式（Facade Pattern）隐藏系统的复杂性，并向客户端提供了一个客户端可以访问系统的接口。这种类型的设计模式属于结构型模式，它向现有的系统添加一个接口，来隐藏系统的复杂性。这种模式涉及到一个单一的类，该类提供了客户端请求的简化方法和对现有系统类方法的委托调用。外观模式多用于为复杂模块提供外部访问接口，提高子系统的相对独立性。
 #### 3.13.2 应用场景
 汉堡的制作是一个极为复杂的过程，我们这里想对顾客隐藏后厨的制作细节，因此我们在这里使用“制作”这个接口来隐藏具体实现。
+
+#### 3.13.3 Class diagram
+
+
+
+#### 3.13.4 API描述
+
+```java
+
+```
 
 
 
@@ -347,6 +554,16 @@ public Order order() {
 #### 3.14.2 应用场景
 欢乐厨房里食材的状态对象（State）只需要创建一次，以后会被多处共享同一个对象，因此我们在这里使用享元模式来实现共享。 
 
+#### 3.14.3 Class diagram
+
+
+
+#### 3.14.4 API描述
+
+```java
+
+```
+
 
 
 ### 3.15 原型模式 Prototype
@@ -354,6 +571,16 @@ public Order order() {
 原型模式（Prototype Pattern）是用于创建重复的对象，同时又能保证性能。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。该模式实现了一个原型接口，该接口用于创建当前对象的克隆。当直接创建对象的代价比较大时，则采用这种模式。
 #### 3.15.2 应用场景
 当欢乐厨房中的原料用尽时，厨师可以补充原料，因此为了简化模型复杂度我们这里使用原型模式对原有原料进行克隆。
+
+#### 3.15.3 Class diagram
+
+
+
+#### 3.15.4 API描述
+
+```java
+
+```
 
 
 
@@ -363,6 +590,16 @@ public Order order() {
 #### 3.16.2 应用场景
 食材处理过程可能出现意外，需要备忘录机制来进行处理。食材的状态和新鲜程度保存在备忘录中，处理食材之前可以先保存当前状态。
 
+#### 3.16.3 Class diagram
+
+
+
+#### 3.16.4 API描述
+
+```java
+
+```
+
 
 
 ### 3.17 空对象模式 Null Object
@@ -370,6 +607,16 @@ public Order order() {
 空对象模式（Null Object Pattern），用一个空对象取代 NULL 对象实例的检查。Null 对象不是检查空值，而是反应一个不做任何动作的关系。这样的 Null 对象也可以在数据不可用的时候提供默认的行为。
 #### 3.17.2 应用场景
 在创建订单时，有可能出现指定的商品不存在，直接返回一个空商品（价格为0）。
+
+#### 3.17.3 Class diagram
+
+
+
+#### 3.17.4 API描述
+
+```java
+
+```
 
 
 
@@ -382,6 +629,12 @@ public Order order() {
 #### 3.18.2 应用场景
 
 订单中既可以包含食品、又可以包含食品组成的套餐。
+
+#### 3.18.3 Class diagram
+
+
+
+#### 3.18.4 API描述
 
 - **add(Merch merch)**
 
@@ -404,3 +657,13 @@ public Order order() {
 #### 3.19.2 应用场景
 
 厨师可以通过访问者模式访问冰箱、橱柜里的食材。
+
+#### 3.19.3 Class diagram
+
+
+
+#### 3.19.4 API描述
+
+```java
+
+```
