@@ -7,4 +7,9 @@ public class IngredientStaleState implements IngredientState {
     public boolean isStale(Ingredient ingredient) {
         return true;
     }
+
+    @Override
+    public boolean isCooked(Ingredient ingredient) {
+        return false;
+    }
 }

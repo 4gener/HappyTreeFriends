@@ -7,4 +7,6 @@ import framework.ingredient.Ingredient;
  */
 public interface IngredientState {
     public abstract boolean isStale(Ingredient ingredient);
+
+    public abstract boolean isCooked(Ingredient ingredient);
 }

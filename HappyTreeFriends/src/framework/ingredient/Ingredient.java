@@ -36,7 +36,7 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
      * 由 Timer.tick() 触发
      */
     public final void update() {
-        if (isStale()) return;
+        if (isStale() || isCooked()) return;
         this.stateRate += baseStateUpdateRate * stateUpdateRate;
         if (stateRate >= 100) {
             state = new IngredientStaleState();
@@ -51,6 +51,8 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
     public boolean isStale() {
         return state.isStale(this);
     }
+
+    public boolean isCooked() { return state.isCooked(this); }
 
     public abstract IngredientType getIngredientType();
 
