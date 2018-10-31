@@ -52,7 +52,7 @@
 
 #### 3.1.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\Singleton_7.png)
 
 #### 3.1.4 API描述
 
@@ -101,7 +101,7 @@
 
 #### 3.2.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\AbstractFactory_8.png)
 
 #### 3.2.4 API描述
 
@@ -145,7 +145,7 @@ public class MerchFactoryMaker {
 
 #### 3.3.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\Factory_9.png)
 
 #### 3.3.4 API描述
 
@@ -206,7 +206,7 @@ public class MerchFactoryMaker {
 
 #### 3.4.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\Template_10.png)
 
 #### 3.4.4 API描述
 
@@ -250,7 +250,7 @@ public abstract class Cooker {
 
 #### 3.5.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\Observer_11.png)
 
 #### 3.5.4 API描述
 
@@ -291,8 +291,6 @@ public abstract class Cooker {
 
 #### 3.6.3 Class diagram
 
-
-
 #### 3.6.4 API描述
 
 - **totalPrice()**
@@ -323,7 +321,7 @@ public abstract class Cooker {
 
 #### 3.7.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\State_12.png)
 
 #### 3.7.4 API描述
 
@@ -351,8 +349,6 @@ public interface IngredientState {
 
 #### 3.8.3 Class diagram
 
-
-
 #### 3.8.4 API描述
 
 创建了作为命令的接口ChefCommand，而实体类Chef实现了ChefCommand接口。
@@ -378,7 +374,7 @@ public interface ChefCommand {
 
 #### 3.9.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\Decorator_13.png)
 
 #### 3.9.4 API描述
 
@@ -420,7 +416,7 @@ public interface ChefCommand {
 
 #### 3.10.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\Strategy_14.png)
 
 #### 3.10.4 API描述
 
@@ -448,7 +444,7 @@ public interface ChefCommand {
 
 #### 3.11.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\Builder.png)
 
 #### 3.11.4 API描述
 
@@ -520,8 +516,6 @@ public Order order() {
 
 #### 3.12.3 Class diagram
 
-
-
 #### 3.12.4 API描述
 
 ```java
@@ -538,7 +532,7 @@ public Order order() {
 
 #### 3.13.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\Facade_17.png)
 
 #### 3.13.4 API描述
 
@@ -556,7 +550,7 @@ public Order order() {
 
 #### 3.14.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\Flyweight_19.png)
 
 #### 3.14.4 API描述
 
@@ -574,8 +568,6 @@ public Order order() {
 
 #### 3.15.3 Class diagram
 
-
-
 #### 3.15.4 API描述
 
 ```java
@@ -592,7 +584,7 @@ public Order order() {
 
 #### 3.16.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\Memento_18.png)
 
 #### 3.16.4 API描述
 
@@ -609,8 +601,6 @@ public Order order() {
 在创建订单时，有可能出现指定的商品不存在，直接返回一个空商品（价格为0）。
 
 #### 3.17.3 Class diagram
-
-
 
 #### 3.17.4 API描述
 
@@ -632,7 +622,7 @@ public Order order() {
 
 #### 3.18.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\Composite.png)
 
 #### 3.18.4 API描述
 
@@ -660,7 +650,7 @@ public Order order() {
 
 #### 3.19.3 Class diagram
 
-
+![](..\UMLDiagrams\DesignPatternView\Visitor_16.png)
 
 #### 3.19.4 API描述
 
