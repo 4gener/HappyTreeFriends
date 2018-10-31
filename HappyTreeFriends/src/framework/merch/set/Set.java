@@ -18,8 +18,10 @@ public abstract class Set extends Merch {
 
     @Override
     public void handle() {
+        System.out.println("开始处理" + this.getName() + "...");
         for (Merch merch : merchComposite) {
             merch.handle();
         }
+        System.out.println("\n" + this.getName() + "处理完成啦！");
     }
 }

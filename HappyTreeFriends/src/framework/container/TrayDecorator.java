@@ -24,4 +24,10 @@ public class TrayDecorator implements OrderInterface {
     public boolean hasTray() {
         return true;
     }
+
+    @Override
+    public void displayMerches() {
+        System.out.println("该订单已装盘");
+        order.displayMerches();
+    }
 }

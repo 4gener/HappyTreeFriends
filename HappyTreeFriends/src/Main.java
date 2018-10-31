@@ -15,6 +15,8 @@ public class Main {
 
         builder.orderBurger(MerchType.BEEF_BURGER);
 
+        builder.orderSet(MerchType.SET_BEEF_BURGER_COKE);
+
         builder.orderBeverage(MerchType.COKE);
 
         Order order = builder.order();

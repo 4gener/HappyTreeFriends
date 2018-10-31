@@ -2,6 +2,7 @@ package framework.chef;
 
 import framework.container.Cabinet;
 import framework.container.Fridge;
+import framework.container.TrayDecorator;
 import framework.ingredient.Ingredient;
 import framework.ingredient.IngredientType;
 import framework.order.Order;
@@ -63,6 +64,8 @@ public final class Chef implements ChefCommand {
         System.out.println("大厨，你刚刚接到了新订单！");
         order.displayMerches();
         order.handle();
-        System.out.println("订单完成啦！");
+        TrayDecorator decorator = new TrayDecorator(order);
+        decorator.displayMerches();
+        System.out.println("\n订单完成啦！");
     }
 }

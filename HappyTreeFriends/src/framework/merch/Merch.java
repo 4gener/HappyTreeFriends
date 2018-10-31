@@ -15,4 +15,8 @@ public abstract class Merch {
         this.price = price;
     }
 
+    public abstract String getName();
+
+    public abstract void handle();
+
 }

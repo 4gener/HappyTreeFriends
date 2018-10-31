@@ -34,7 +34,7 @@ public class Order implements OrderInterface {
             System.out.print(merch.getName() + " ");
         }
         System.out.println();
-        System.out.print("订单的价格为：" + totalPrice());
+        System.out.println("订单的价格为：" + totalPrice());
     }
 
     public void handle() {
