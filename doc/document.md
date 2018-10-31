@@ -670,7 +670,7 @@ public static class IngredientMementoInternal implements IngredientMemento {
 
 #### 3.19.2 应用场景
 
-厨师可以通过访问者模式访问冰箱、橱柜里的食材。
+厨师查看冰箱、橱柜的东西时，不需要在冰箱、橱柜中设计遍历的方法，可以设计一个外部的厨师的visitor类来访问。 
 
 #### 3.19.3 Class diagram
 
@@ -678,6 +678,16 @@ public static class IngredientMementoInternal implements IngredientMemento {
 
 #### 3.19.4 API描述
 
-```java
+- **visit(Container container)**
 
+访问冰箱或是橱柜中的食材
+
+```java
+public void visit(Container container) {
+        System.out.println(container.getName() + "里装有：");
+        for (Ingredient ingredient : container.getIngredients()) {
+            ingredient.displayInfo();
+        }
+        System.out.println();
+    }
 ```
