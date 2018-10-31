@@ -5,7 +5,7 @@ import framework.ingredient.state.*;
 import framework.time.TimeObserver;
 
 /**
- * Strategy, Prototype
+ * Strategy, Prototype, Memento
  */
 public abstract class Ingredient implements TimeObserver, Cloneable {
 
@@ -92,5 +92,43 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
         } else {
             System.out.println("一片新鲜的" + this.getName() + " 新鲜指数为" + this.stateRate);
         }
+    }
+
+    public void setMemento(IngredientMemento memento) {
+        this.state = ((IngredientMementoInternal) memento).getState();
+        this.stateRate = ((IngredientMementoInternal) memento).getStateRate();
+    }
+
+    public IngredientMemento getMemento() {
+        IngredientMementoInternal memento = new IngredientMementoInternal();
+        memento.setState(state);
+        memento.setStateRate(stateRate);
+        return memento;
+    }
+
+    // Memento
+    // 保存食材的状态和新鲜程度
+    public static class IngredientMementoInternal implements IngredientMemento {
+
+        private IngredientState state;
+
+        private double stateRate;
+
+        public IngredientState getState() {
+            return state;
+        }
+
+        public void setState(IngredientState state) {
+            this.state = state;
+        }
+
+        public double getStateRate() {
+            return stateRate;
+        }
+
+        public void setStateRate(double stateRate) {
+            this.stateRate = stateRate;
+        }
+
     }
 }
