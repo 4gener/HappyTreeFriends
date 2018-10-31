@@ -588,8 +588,32 @@ public Order order() {
 
 #### 3.16.4 API描述
 
-```java
+用于保存食材的状态和新鲜程度
 
+```java
+public static class IngredientMementoInternal implements IngredientMemento {
+
+    private IngredientState state;
+
+    private double stateRate;
+
+    public IngredientState getState() {
+        return state;
+    }
+
+    public void setState(IngredientState state) {
+        this.state = state;
+    }
+
+    public double getStateRate() {
+        return stateRate;
+    }
+
+    public void setStateRate(double stateRate) {
+        this.stateRate = stateRate;
+    }
+
+}
 ```
 
 
