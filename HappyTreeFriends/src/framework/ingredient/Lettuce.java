@@ -7,4 +7,9 @@ public class Lettuce extends Ingredient {
     public IngredientType getIngredientType() {
         return IngredientType.LETTUCE;
     }
+
+    @Override
+    public String getName() {
+        return "生菜";
+    }
 }

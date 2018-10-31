@@ -22,6 +22,7 @@ public class Cabinet extends Container {
         } else {
             throw new IllegalStateException("Already initialized.");
         }
+        System.out.println("你的厨房里有一个橱柜！");
     }
 
     private static Cabinet instance;
@@ -32,5 +33,11 @@ public class Cabinet extends Container {
         }
 
         return instance;
+    }
+
+    @Override
+    public void displayStock() {
+        System.out.println("橱柜里装有：");
+        super.displayStock();
     }
 }

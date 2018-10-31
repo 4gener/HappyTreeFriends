@@ -8,4 +8,9 @@ public class BeefPatty extends Ingredient {
     public IngredientType getIngredientType() {
         return IngredientType.BEEF_PATTY;
     }
+
+    @Override
+    public String getName() {
+        return "牛肉";
+    }
 }

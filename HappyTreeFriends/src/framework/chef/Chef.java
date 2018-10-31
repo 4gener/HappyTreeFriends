@@ -1,10 +1,12 @@
 package framework.chef;
 
+import framework.container.Cabinet;
+import framework.container.Fridge;
 import framework.order.Order;
 
 /**
  * DP:
- *   Singleton
+ * Singleton
  */
 public final class Chef implements ChefCommand {
     private Chef() {
@@ -22,7 +24,16 @@ public final class Chef implements ChefCommand {
             instance = new Chef();
         }
 
+        System.out.println("大厨，准备开工啦！");
         return instance;
+    }
+
+    @Override
+    public void showStock() {
+        Cabinet cabinet = Cabinet.getInstance();
+        Fridge fridge = Fridge.getInstance();
+        cabinet.displayStock();
+        fridge.displayStock();
     }
 
     @Override

@@ -13,9 +13,13 @@ public abstract class Cooker {
         return Arrays.asList(availableTypes).contains(type);
     }
 
-    public void cook(Ingredient ingredient){
+    public void cook(Ingredient ingredient) {
         if (!(this.isIngredientTypeLegal(ingredient.getIngredientType()))) {
             throw new IllegalArgumentException("this ingredient doesn't belong here");
         }
+        // TODO state
+        System.out.println("你成功地使用" + this.getName() + "加工好了" + ingredient.getName());
     }
+
+    public abstract String getName();
 }

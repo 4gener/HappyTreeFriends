@@ -8,4 +8,9 @@ public class Tomato extends Ingredient {
     public IngredientType getIngredientType() {
         return IngredientType.TOMATO;
     }
+
+    @Override
+    public String getName() {
+        return "番茄";
+    }
 }

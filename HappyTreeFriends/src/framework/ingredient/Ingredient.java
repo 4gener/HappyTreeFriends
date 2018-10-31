@@ -13,7 +13,7 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
 
     private IngredientState state = new IngredientFreshState();
 
-    private Integer stateRate;
+    protected Integer stateRate;
 
     Ingredient() {
         this.stateRate = (int) (Math.random() * 100);
@@ -37,6 +37,7 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
 
     /**
      * 是否过期
+     *
      * @return boolean
      */
     public boolean isStale() {
@@ -54,5 +55,15 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
             System.out.println(e.getMessage());
         }
         return clone;
+    }
+
+    public abstract String getName();
+
+    public void displayInfo() {
+        if (this.isStale()) {
+            System.out.println("一片已经变质的" + this.getName());
+        } else {
+            System.out.println("一片新鲜的" + this.getName() + " 新鲜指数为" + this.stateRate);
+        }
     }
 }

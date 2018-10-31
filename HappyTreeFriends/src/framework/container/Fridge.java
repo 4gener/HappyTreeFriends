@@ -1,6 +1,5 @@
 package framework.container;
 
-import framework.ingredient.Ingredient;
 import framework.ingredient.IngredientType;
 
 import java.util.ArrayList;
@@ -22,6 +21,7 @@ public class Fridge extends Container {
         } else {
             throw new IllegalStateException("Already initialized.");
         }
+        System.out.println("你的厨房里有一台冰箱！");
     }
 
     private static Fridge instance;
@@ -33,4 +33,11 @@ public class Fridge extends Container {
 
         return instance;
     }
+
+    @Override
+    public void displayStock() {
+        System.out.println("冰箱里装有：");
+        super.displayStock();
+    }
 }
+
