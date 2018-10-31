@@ -25,7 +25,22 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
         this.baseStateUpdateRate = stateUpdateRate;
     }
 
-    public void handle(Cooker cooker) {
+    private Cooker cooker;
+
+    /**
+     * 设置处理食材的厨具
+     * DP: Strategy
+     * @param cooker
+     */
+    public void setCooker(Cooker cooker) {
+        this.cooker = cooker;
+    }
+
+    /**
+     * 使用设置的厨具烹饪
+     * DP: Strategy
+     */
+    public void doCook() {
         cooker.cook(this);
     }
 
