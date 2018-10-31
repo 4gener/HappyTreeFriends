@@ -1,9 +1,7 @@
 package framework.ingredient;
 
 import framework.cooker.Cooker;
-import framework.ingredient.state.IngredientFreshState;
-import framework.ingredient.state.IngredientStaleState;
-import framework.ingredient.state.IngredientState;
+import framework.ingredient.state.*;
 import framework.time.TimeObserver;
 
 /**
@@ -41,6 +39,10 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
         if (stateRate >= 100) {
             state = new IngredientStaleState();
         }
+    }
+
+    public void changeState(IngredientStateType type) {
+        this.state = IngredientStateFactory.getState(type);
     }
 
     /**
