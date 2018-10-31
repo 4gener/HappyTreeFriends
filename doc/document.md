@@ -588,7 +588,7 @@ public Order order() {
 
 #### 3.16.4 API描述
 
-用于保存食材的状态和新鲜程度
+用于保存食材的状态和新鲜程度。
 
 ```java
 public static class IngredientMementoInternal implements IngredientMemento {
@@ -628,8 +628,20 @@ public static class IngredientMementoInternal implements IngredientMemento {
 
 #### 3.17.4 API描述
 
-```java
+创建订单时，可能出现单品或套餐为空的情况，这时直接返回一个空的单品订单或套餐订单。
 
+```java
+public class NullMerchFactory extends MerchFactory {
+    @Override
+    public SingleOrder createSingleOrder(MerchType merchType) {
+        return new NullSingleOrder();
+    }
+
+    @Override
+    public Set createSet(MerchType merchType) {
+        return new NullSet();
+    }
+}
 ```
 
 
