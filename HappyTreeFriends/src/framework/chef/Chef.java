@@ -19,6 +19,8 @@ public final class Chef implements ChefCommand {
 
     private static Chef instance;
 
+    private ChefVisitor visitor = new SimpleChefVisitor();
+
     public static synchronized Chef getInstance() {
         if (instance == null) {
             instance = new Chef();
@@ -32,8 +34,8 @@ public final class Chef implements ChefCommand {
     public void showStock() {
         Cabinet cabinet = Cabinet.getInstance();
         Fridge fridge = Fridge.getInstance();
-        cabinet.displayStock();
-        fridge.displayStock();
+        cabinet.accept(visitor);
+        fridge.accept(visitor);
     }
 
     @Override

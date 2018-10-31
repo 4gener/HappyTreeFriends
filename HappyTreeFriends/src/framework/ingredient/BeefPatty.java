@@ -3,6 +3,9 @@ package framework.ingredient;
 import framework.cooker.Cooker;
 
 public class BeefPatty extends Ingredient {
+    BeefPatty(double baseStateUpdateRate) {
+        super(baseStateUpdateRate);
+    }
 
     @Override
     public IngredientType getIngredientType() {

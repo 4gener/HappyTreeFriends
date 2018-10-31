@@ -1,5 +1,6 @@
 package framework.container;
 
+import framework.chef.ChefVisitor;
 import framework.ingredient.Ingredient;
 import framework.ingredient.IngredientFactory;
 import framework.ingredient.IngredientType;
@@ -7,6 +8,9 @@ import framework.ingredient.IngredientType;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * DP Visitor
+ */
 public abstract class Container {
     ArrayList<Ingredient> ingredients;
 
@@ -59,9 +63,9 @@ public abstract class Container {
         return false;
     }
 
-    protected void displayStock(){
-        for (Ingredient ingredient: ingredients){
-            ingredient.displayInfo();
-        }
+    public ArrayList<Ingredient> getIngredients() {
+        return ingredients;
     }
+
+    public abstract void accept(ChefVisitor visitor);
 }

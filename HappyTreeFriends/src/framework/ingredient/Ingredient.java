@@ -13,10 +13,18 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
 
     private IngredientState state = new IngredientFreshState();
 
-    protected Integer stateRate;
+    private double stateRate;
 
-    Ingredient() {
-        this.stateRate = (int) (Math.random() * 100);
+    // 基础腐烂速率
+    // 实际腐烂速率为 baseStateUpdateRate * stateUpdateRate
+    private double baseStateUpdateRate;
+
+    // 腐烂速率基准
+    private double stateUpdateRate = 1;
+
+    Ingredient(double stateUpdateRate) {
+        this.stateRate = Math.random() * 100;
+        this.baseStateUpdateRate = stateUpdateRate;
     }
 
     public void handle(Cooker cooker) {
@@ -29,7 +37,7 @@ public abstract class Ingredient implements TimeObserver, Cloneable {
      */
     public final void update() {
         if (isStale()) return;
-        this.stateRate++;
+        this.stateRate += baseStateUpdateRate * stateUpdateRate;
         if (stateRate >= 100) {
             state = new IngredientStaleState();
         }

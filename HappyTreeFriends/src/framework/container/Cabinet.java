@@ -1,5 +1,6 @@
 package framework.container;
 
+import framework.chef.ChefVisitor;
 import framework.ingredient.Ingredient;
 import framework.ingredient.IngredientType;
 
@@ -8,7 +9,7 @@ import java.util.Arrays;
 
 /**
  * DP:
- * Singleton
+ * Singleton, Visitor
  */
 public class Cabinet extends Container {
 
@@ -36,8 +37,7 @@ public class Cabinet extends Container {
     }
 
     @Override
-    public void displayStock() {
-        System.out.println("橱柜里装有：");
-        super.displayStock();
+    public void accept(ChefVisitor visitor) {
+        visitor.visit(this);
     }
 }

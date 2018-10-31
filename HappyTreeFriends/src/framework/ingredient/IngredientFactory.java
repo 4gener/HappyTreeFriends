@@ -9,13 +9,13 @@ public class IngredientFactory {
     public Ingredient createIngredient(IngredientType ingredientType) {
         switch (ingredientType) {
             case BACON:
-                return new Bacon();
+                return new Bacon(0.5);
             case TOMATO:
-                return new Tomato();
+                return new Tomato(0.8);
             case LETTUCE:
-                return new Lettuce();
+                return new Lettuce(0.2);
             case BEEF_PATTY:
-                return new BeefPatty();
+                return new BeefPatty(1.1);
             default:
                 throw new IllegalArgumentException("no such ingredient");
         }
