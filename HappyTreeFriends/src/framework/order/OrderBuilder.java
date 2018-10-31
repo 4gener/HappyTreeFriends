@@ -10,8 +10,8 @@ import java.util.ArrayList;
 /**
  * DP: Builder
  * 流程：新建 builder 对象
- *      点单
- *      确认订单
+ * 点单
+ * 确认订单
  */
 public class OrderBuilder {
 
@@ -48,12 +48,13 @@ public class OrderBuilder {
 
     /**
      * 点套餐
+     *
      * @param type 套餐类型
      */
     public void orderSet(MerchType type) {
         try {
             MerchFactory factory = MerchFactoryMaker.create(MerchFactoryMaker.MerchFactoryType.SET);
-            merches.add(factory.createSingleOrder(type));
+            merches.add(factory.createSet(type));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
