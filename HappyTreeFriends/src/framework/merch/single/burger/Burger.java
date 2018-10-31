@@ -14,7 +14,7 @@ public abstract class Burger extends SingleOrder {
         this.requirements.addAll(requirements);
     }
 
-    public ArrayList<IngredientType> getRequirments() {
+    public ArrayList<IngredientType> getRequirements() {
         return requirements;
     }
 }
