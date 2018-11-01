@@ -326,7 +326,7 @@ totalPrice()遍历所有商品，返回商品的总价格。
 
 #### 3.7.4 API描述
 
-创建了IngredientState接口和实现了接口的实体类IngredientCookedState、IngredientFreshState等。
+创建了IngredientState接口和实现了接口的实体类 `IngredientCookedState`、 `IngredientFreshState` 等。
 
 ```java
 public interface IngredientState {
