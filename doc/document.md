@@ -59,7 +59,7 @@
 
 - **Chef 厨师**
 
-   为了保证仅有一个厨师，Chef类具有私有构造函数和本身的一个静态实例，并提供了getInstance()方法，供外界进行访问。
+   为了保证仅有一个厨师，`Chef` 类具有私有构造函数和本身的一个静态实例，并提供了 `getInstance()` 方法，供外界进行访问。
 
    ```java
    public final class Chef {
@@ -85,7 +85,7 @@
 
 - **Container 容器**
 
-  Fridge类与Cabinet类扩展自Container类，也采用了Singleton模式，同样具有自身的私有构造函数与静态实例，提供了 getInstance() 方法。
+  `Fridge` 类与 `Cabinet` 类扩展自 `Container` 类，也采用了 Singleton 模式，同样具有自身的私有构造函数与静态实例，提供了 `getInstance()` 方法。
 
 
 
@@ -106,7 +106,7 @@
 
 #### 3.2.4 API描述
 
-创建了抽象工厂类MerchFactory，工厂类BurgerFactory、BeverageFactory等都是继承自MerchFactory。然后创建了一个工厂创造器类MerchFactoryMaker，通过传递type信息来获取工厂类型。
+创建了抽象工厂类 `MerchFactory` ，工厂类 `BurgerFactory` 、`BeverageFactory` 等都是继承自 `MerchFactory` 。然后创建了一个工厂创造器类 `MerchFactoryMaker` ，通过传递type信息来获取工厂类型。
 
 ```java
 public class MerchFactoryMaker {
@@ -152,7 +152,7 @@ public class MerchFactoryMaker {
 
 - **汉堡工厂/饮品工厂/套餐工厂**
 
-  创建了工厂类BurgerFactory、BeverageFactory等，生成基于MerchType信息的实体类的对象
+  创建了工厂类 `BurgerFactory` 、`BeverageFactory` 等，生成基于 `MerchType` 信息的实体类的对象
 
   ```java
   class BurgerFactory extends MerchFactory {
@@ -195,7 +195,7 @@ public class MerchFactoryMaker {
 
 - **原料工厂**
 
-  创建了工厂类IngredientFactory，生成基于IngredientType信息的实体类的对象。
+  创建了工厂类 `IngredientFactory` ，生成基于 `IngredientType` 信息的实体类的对象。
 
 
 
@@ -215,7 +215,7 @@ public class MerchFactoryMaker {
 
 #### 3.4.4 API描述
 
-CounterTop类和Giller类是扩展了Cooker的实体类，它们重写了抽象类的方法startCooking和finishCooking。
+`CounterTop` 类和  `Griller` 类是扩展了 `Cooker` 的实体类，它们重写了抽象类的方法 `startCooking()` 和 `finishCooking()` 。
 
 ```java
 public abstract class Cooker {
@@ -352,7 +352,7 @@ public interface IngredientState {
 
 #### 3.8.4 API描述
 
-创建了作为命令的接口ChefCommand，而实体类Chef实现了ChefCommand接口。
+创建了作为命令的接口 `ChefCommand` ，而实体类 `Chef` 实现了 `ChefCommand` 接口。
 
 ```java
 public interface ChefCommand {
@@ -445,9 +445,9 @@ public class TrayDecorator implements OrderInterface {
 
 #### 3.11.4 API描述
 
-创建了 OrderBuilder 类，其中包含带有 Merch 的 ArrayList 以及根据 MerchType 创建不同类型的Order对象。
+创建了 `OrderBuilder` 类，其中包含带有 `Merch` 的 `ArrayList` 以及根据 `MerchType` 创建不同类型的 `Order` 对象。
 
-- orderBurger(MerchType type)
+- `orderBurger(MerchType type)`
 
   点汉堡
 
@@ -457,7 +457,7 @@ public class TrayDecorator implements OrderInterface {
   } 
   ```
 
-- orderBeverage
+- `orderBeverage(MerchType type)`
 
   点饮料
 
@@ -472,7 +472,7 @@ public class TrayDecorator implements OrderInterface {
   }
   ```
 
-- orderSet(MerchType type)
+- `orderSet(MerchType type)`
 
   点套餐
 
@@ -487,7 +487,7 @@ public class TrayDecorator implements OrderInterface {
   }
   ```
 
-- Order order()
+- `Order order()`
 
   下订单
 
@@ -578,7 +578,7 @@ public double totalPrice() {
 
 #### 3.14.4 API描述
 
-定义了工厂类IngredientStateFactory来获取IngredientState对象，向IngredientStateFactory传递信息以便获取它所需状态对象。
+定义了工厂类 `IngredientStateFactory` 来获取 `IngredientState` 对象，向 `IngredientStateFactory` 传递信息以便获取它所需状态对象。
 
 ```java
 public class IngredientStateFactory {
@@ -720,9 +720,9 @@ public class NullMerchFactory extends MerchFactory {
 
 #### 3.18.4 API描述
 
-- **add(Merch merch)**
+- `add(Merch merch)`
 
-  订单的行为，向订单中增加商品，商品类型是merch，merch又有Coke和Burger两个子类。
+  订单的行为，向订单中增加商品，商品类型是 `Merch` ，`Merch` 又有 `Coke` 和 `Burger` 两个子类。
 
   ```java
   public void add(Merch merch) {
@@ -740,7 +740,7 @@ public class NullMerchFactory extends MerchFactory {
 
 #### 3.19.2 应用场景
 
-厨师查看冰箱、橱柜的东西时，不需要在冰箱、橱柜中设计遍历的方法，可以设计一个外部的厨师的visitor类来访问。 
+厨师查看冰箱、橱柜的东西时，不需要在冰箱、橱柜中设计遍历的方法，可以设计一个外部的厨师的 `visitor` 类来访问。 
 
 #### 3.19.3 Class diagram
 
@@ -748,16 +748,16 @@ public class NullMerchFactory extends MerchFactory {
 
 #### 3.19.4 API描述
 
-- **visit(Container container)**
+- `visit(Container container)`
 
-访问冰箱或是橱柜中的食材
+  访问冰箱或是橱柜中的食材
 
-```java
-public void visit(Container container) {
-    System.out.println(container.getName() + "里装有：");
-    for (Ingredient ingredient : container.getIngredients()) {
-        ingredient.displayInfo();
-    }
-    System.out.println();
-}
-```
+  ```java
+  public void visit(Container container) {
+      System.out.println(container.getName() + "里装有：");
+      for (Ingredient ingredient : container.getIngredients()) {
+          ingredient.displayInfo();
+      }
+      System.out.println();
+  }
+  ```
