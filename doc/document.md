@@ -61,27 +61,27 @@
 
    为了保证仅有一个厨师，Chef类具有私有构造函数和本身的一个静态实例，并提供了getInstance()方法，供外界进行访问。
 
-  ```java
-  public final class Chef {
-      private Chef() {
-          if (instance == null) {
-              instance = this;
-          } else {
-              throw new IllegalStateException("Already initialized.");
-          }
-      }
-  
-      private static Chef instance;
-  
-      public static synchronized Chef getInstance() {
-          if (instance == null) {
-              instance = new Chef();
-          }
-  
-          return instance;
-      }
-  }
-  ```
+   ```java
+   public final class Chef {
+       private Chef() {
+           if (instance == null) {
+               instance = this;
+           } else {
+               throw new IllegalStateException("Already initialized.");
+           }
+       }
+   
+       private static Chef instance;
+   
+       public static synchronized Chef getInstance() {
+           if (instance == null) {
+               instance = new Chef();
+           }
+   
+           return instance;
+       }
+   }
+   ```
 
 - **Container 容器**
 
@@ -382,7 +382,7 @@ public interface ChefCommand {
 这种模式创建了一个装饰类TrayDecorator，用来实现接口 OrderInterface，
 
 ```java
-  public class TrayDecorator implements OrderInterface {
+public class TrayDecorator implements OrderInterface {
     private Order order;
 
     public TrayDecorator(Order order) {
@@ -424,7 +424,7 @@ public interface ChefCommand {
 ```java
  protected void setCooker(Cooker cooker) {
         this.cooker = cooker;
-    }
+}
 ```
 
 
@@ -449,59 +449,59 @@ public interface ChefCommand {
 
 - orderBurger(MerchType type)
 
-点汉堡
+  点汉堡
 
-```java
- protected void setCooker(Cooker cooker) {
-        this.cooker = cooker;
-    }
-```
+  ```java
+  protected void setCooker(Cooker cooker) {
+          this.cooker = cooker;
+  } 
+  ```
 
 - orderBeverage
 
-点饮料
+  点饮料
 
-```java
- public void orderBeverage(MerchType type) {
-        try {
-            MerchFactory factory = MerchFactoryMaker.create(MerchFactoryMaker.MerchFactoryType.BEVERAGE);
-            merches.add(factory.createSingleOrder(type));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-```
+  ```java
+  public void orderBeverage(MerchType type) {
+      try {
+          MerchFactory factory = MerchFactoryMaker.create(MerchFactoryMaker.MerchFactoryType.BEVERAGE);
+          merches.add(factory.createSingleOrder(type));
+      } catch (Exception e) {
+          System.out.println(e.getMessage());
+      }
+  }
+  ```
 
 - orderSet(MerchType type)
 
-点套餐
+  点套餐
 
-```java
+  ```java
   public void orderSet(MerchType type) {
-        try {
-            MerchFactory factory = MerchFactoryMaker.create(MerchFactoryMaker.MerchFactoryType.SET);
-            merches.add(factory.createSet(type));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-```
+      try {
+          MerchFactory factory = MerchFactoryMaker.create(MerchFactoryMaker.MerchFactoryType.SET);
+          merches.add(factory.createSet(type));
+      } catch (Exception e) {
+          System.out.println(e.getMessage());
+      }
+  }
+  ```
 
 - Order order()
 
-下订单
+  下订单
 
-```java
-public Order order() {
-        Order order = new Order();
-
-        for (Merch merch : merches) {
-            order.add(merch);
-        }
-
-        return order;
-    }
-```
+  ```java
+  public Order order() {
+      Order order = new Order();
+  
+      for (Merch merch : merches) {
+          order.add(merch);
+      }
+  
+      return order;
+  }
+  ```
 
 
 
@@ -526,15 +526,15 @@ public interface OrderInterface {
 
     void displayMerches();
 
-
 }
+
 public double totalPrice() {
         double price = 0;
         for (Merch merch : merches) {
             price += merch.getPrice();
         }
         return price;
-    }
+}
 ```
 
 
@@ -561,7 +561,7 @@ public double totalPrice() {
         TrayDecorator decorator = new TrayDecorator(order);
         decorator.displayMerches();
         System.out.println("/n订单完成啦！");
-    }
+}
 ```
 
 
@@ -621,15 +621,15 @@ public class IngredientStateFactory {
 
 ```java
 public Object clone() throws CloneNotSupportedException {
-        Object clone = null;
-        try {
-            clone = super.clone();
-            Timer.getInstance().addObserver((TimeObserver) clone);
-        } catch (CloneNotSupportedException e) {
-            System.out.println(e.getMessage());
-        }
-        return clone;
+    Object clone = null;
+    try {
+        clone = super.clone();
+        Timer.getInstance().addObserver((TimeObserver) clone);
+    } catch (CloneNotSupportedException e) {
+        System.out.println(e.getMessage());
     }
+    return clone;
+}
 ```
 
 
@@ -727,7 +727,7 @@ public class NullMerchFactory extends MerchFactory {
   ```java
   public void add(Merch merch) {
           merches.add(merch);
-      }
+  }
   ```
 
 
@@ -754,10 +754,10 @@ public class NullMerchFactory extends MerchFactory {
 
 ```java
 public void visit(Container container) {
-        System.out.println(container.getName() + "里装有：");
-        for (Ingredient ingredient : container.getIngredients()) {
-            ingredient.displayInfo();
-        }
-        System.out.println();
+    System.out.println(container.getName() + "里装有：");
+    for (Ingredient ingredient : container.getIngredients()) {
+        ingredient.displayInfo();
     }
+    System.out.println();
+}
 ```
