@@ -1,3 +1,4 @@
+
 ##  题材综述
 上海是一座繁华的城市，在这座魔幻之都里，一切皆有可能。比如，就有这样一家欢乐餐厅，它只售卖汉堡和饮料，却隐含着设计模式的迷幻奥秘。
 
@@ -52,7 +53,7 @@
 
 #### 3.1.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\Singleton_7.png)
+![](../UMLDiagrams/DesignPatternView/Singleton_7.png)
 
 #### 3.1.4 API描述
 
@@ -82,7 +83,7 @@
   }
   ```
 
-- **Container 容器 **
+- **Container 容器**
 
   Fridge类与Cabinet类扩展自Container类，也采用了Singleton模式，同样具有自身的私有构造函数与静态实例，提供了 getInstance() 方法。
 
@@ -101,7 +102,7 @@
 
 #### 3.2.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\AbstractFactory_8.png)
+![](../UMLDiagrams/DesignPatternView/AbstractFactory_8.png)
 
 #### 3.2.4 API描述
 
@@ -145,7 +146,7 @@ public class MerchFactoryMaker {
 
 #### 3.3.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\Factory_9.png)
+![](../UMLDiagrams/DesignPatternView/Factory_9.png)
 
 #### 3.3.4 API描述
 
@@ -210,7 +211,7 @@ public class MerchFactoryMaker {
 
 #### 3.4.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\Template_10.png)
+![](../UMLDiagrams/DesignPatternView/Template_10.png)
 
 #### 3.4.4 API描述
 
@@ -254,7 +255,7 @@ public abstract class Cooker {
 
 #### 3.5.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\Observer_11.png)
+![](../UMLDiagrams/DesignPatternView/Observer_11.png)
 
 #### 3.5.4 API描述
 
@@ -321,7 +322,7 @@ totalPrice()遍历所有商品，返回商品的总价格。
 
 #### 3.7.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\State_12.png)
+![](../UMLDiagrams/DesignPatternView/State_12.png)
 
 #### 3.7.4 API描述
 
@@ -374,7 +375,7 @@ public interface ChefCommand {
 
 #### 3.9.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\Decorator_13.png)
+![](../UMLDiagrams/DesignPatternView/Decorator_13.png)
 
 #### 3.9.4 API描述
 
@@ -414,7 +415,7 @@ public interface ChefCommand {
 
 #### 3.10.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\Strategy_14.png)
+![](../UMLDiagrams/DesignPatternView/Strategy_14.png)
 
 #### 3.10.4 API描述
 
@@ -440,7 +441,7 @@ public interface ChefCommand {
 
 #### 3.11.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\Builder.png)
+![](../UMLDiagrams/DesignPatternView/Builder.png)
 
 #### 3.11.4 API描述
 
@@ -546,7 +547,7 @@ public double totalPrice() {
 
 #### 3.13.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\Facade_17.png)
+![](../UMLDiagrams/DesignPatternView/Facade_17.png)
 
 #### 3.13.4 API描述
 
@@ -559,7 +560,7 @@ public double totalPrice() {
         order.handle();
         TrayDecorator decorator = new TrayDecorator(order);
         decorator.displayMerches();
-        System.out.println("\n订单完成啦！");
+        System.out.println("/n订单完成啦！");
     }
 ```
 
@@ -573,7 +574,7 @@ public double totalPrice() {
 
 #### 3.14.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\Flyweight_19.png)
+![](../UMLDiagrams/DesignPatternView/Flyweight_19.png)
 
 #### 3.14.4 API描述
 
@@ -641,7 +642,7 @@ public Object clone() throws CloneNotSupportedException {
 
 #### 3.16.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\Memento_18.png)
+![](../UMLDiagrams/DesignPatternView/Memento_18.png)
 
 #### 3.16.4 API描述
 
@@ -715,7 +716,7 @@ public class NullMerchFactory extends MerchFactory {
 
 #### 3.18.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\Composite.png)
+![](../UMLDiagrams/DesignPatternView/Composite.png)
 
 #### 3.18.4 API描述
 
@@ -743,7 +744,7 @@ public class NullMerchFactory extends MerchFactory {
 
 #### 3.19.3 Class diagram
 
-![](..\UMLDiagrams\DesignPatternView\Visitor_16.png)
+![](../UMLDiagrams/DesignPatternView/Visitor_16.png)
 
 #### 3.19.4 API描述
 
