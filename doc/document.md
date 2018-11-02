@@ -386,24 +386,25 @@ public abstract class Cooker {
 #### 4.5.4 API描述
 
 ```java
-	private ArrayList<TimeObserver> observers = new ArrayList<>();
+private ArrayList<TimeObserver> observers = new ArrayList<>();
 
-    /**
-     * 更新内部时间，加快历史的进程
-     */
-    public void tick() {
-        for (TimeObserver o : observers) {
-            o.update();
-        }
-    }
+/**
+ * 更新内部时间，加快历史的进程
+ */
 
-    public void addObserver(TimeObserver o) {
-        observers.add(o);
+public void tick() {
+    for (TimeObserver o : observers) {
+        o.update();
     }
+}
 
-    public void removeObserver(TimeObserver o) {
-        observers.remove(o);
-    }
+public void addObserver(TimeObserver o) {
+    observers.add(o);
+}
+
+public void removeObserver(TimeObserver o) {
+    observers.remove(o);
+}
 ```
 
 
