@@ -22,7 +22,7 @@ import framework.time.Timer;
 public class Main {
 
     public static void main(String[] args) {
-//        Main.TestServeOrder();
+        Main.TestServeOrder();
 //        Main.TestSingleton();
 //        Main.TestAbstractFactory();
 //        Main.TestFactory();
@@ -40,7 +40,7 @@ public class Main {
 //        Main.TestComposite();
 //        Main.TestVisitor();
 //        Main.TestMemento();
-        Main.TestIterator();
+//        Main.TestIterator();
 
     }
 
