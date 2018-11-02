@@ -705,13 +705,13 @@ public double totalPrice() {
 对外只提供处理订单接口，内部实现处理的逻辑是取食材、加工、整合。
 
 ```java
- public void processOrder(Order order) {
-        System.out.println("大厨，你刚刚接到了新订单！");
-        order.displayMerches();
-        order.handle();
-        TrayDecorator decorator = new TrayDecorator(order);
-        decorator.displayMerches();
-        System.out.println("\n订单完成啦！");
+public void processOrder(Order order) {
+    System.out.println("大厨，你刚刚接到了新订单！");
+    order.displayMerches();
+    order.handle();
+    TrayDecorator decorator = new TrayDecorator(order);
+    decorator.displayMerches();
+    System.out.println("\n订单完成啦！");
 }
 ```
 
