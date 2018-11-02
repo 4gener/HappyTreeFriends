@@ -710,7 +710,7 @@ public double totalPrice() {
         order.handle();
         TrayDecorator decorator = new TrayDecorator(order);
         decorator.displayMerches();
-        System.out.println("/n订单完成啦！");
+        System.out.println("\n订单完成啦！");
 }
 ```
 
