@@ -1,9 +1,7 @@
 import com.sun.tools.corba.se.idl.constExpr.Or;
 import framework.chef.Chef;
 import framework.chef.SimpleChefVisitor;
-import framework.container.Cabinet;
-import framework.container.Fridge;
-import framework.container.TrayDecorator;
+import framework.container.*;
 import framework.cooker.CounterTop;
 import framework.cooker.Griller;
 import framework.ingredient.Ingredient;
@@ -24,7 +22,7 @@ import framework.time.Timer;
 public class Main {
 
     public static void main(String[] args) {
-        Main.TestServeOrder();
+//        Main.TestServeOrder();
 //        Main.TestSingleton();
 //        Main.TestAbstractFactory();
 //        Main.TestFactory();
@@ -42,6 +40,7 @@ public class Main {
 //        Main.TestComposite();
 //        Main.TestVisitor();
 //        Main.TestMemento();
+        Main.TestIterator();
 
     }
 
@@ -265,5 +264,15 @@ public class Main {
         ingredient.setMemento(memento);
         ingredient.displayInfo();
         System.out.println("==================");
+    }
+
+    public static void TestIterator() {
+        Fridge fridge = Fridge.getInstance();
+        System.out.println("冰箱里有：");
+
+        for (ContainerIterator iterator = fridge.Iterator(); iterator.hasNext(); ) {
+            Ingredient ingredient = iterator.next();
+            System.out.printf("* %s\n", ingredient.getName());
+        }
     }
 }

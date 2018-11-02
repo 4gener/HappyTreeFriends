@@ -420,18 +420,42 @@ public abstract class Cooker {
 
 #### 4.6.3 Class diagram
 
+![](../UMLDiagrams/DesignPatternView/Iterator_6.png)
+
 #### 4.6.4 API描述
 
-totalPrice()遍历所有商品，返回商品的总价格。
+容器的遍历器，实现了 `java.util.Iterator` 中的方法。
 
 ```java
- public double totalPrice() {
-        double price = 0;
-        for (Merch merch : merches) {
-            price += merch.getPrice();
+public class ContainerIterator implements Iterator<Ingredient> {
+    private ArrayDeque<Ingredient> queue = new ArrayDeque<>();
+
+    ContainerIterator(ArrayList<Ingredient> ingredients) {
+        for (Ingredient ingredient: ingredients) {
+            queue.push(ingredient);
         }
-        return price;
     }
+
+    public boolean hasNext() {
+        return !queue.isEmpty();
+    }
+
+    public Ingredient next() throws NoSuchElementException {
+        if (queue.isEmpty()) {
+            throw new NoSuchElementException();
+        }
+
+        return queue.pollFirst();
+    }
+}
+```
+
+获取遍历器。
+
+```java
+public ContainerIterator Iterator() {
+    return new ContainerIterator(ingredients);
+}
 ```
 
 

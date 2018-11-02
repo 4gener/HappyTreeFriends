@@ -70,6 +70,8 @@ public abstract class Container {
         return ingredients;
     }
 
+    public ContainerIterator Iterator() { return new ContainerIterator(ingredients); }
+
     public abstract void accept(ChefVisitor visitor);
 
     public abstract String getName();
