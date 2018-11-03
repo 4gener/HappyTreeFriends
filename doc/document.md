@@ -36,8 +36,11 @@
 | 17   | 空对象模式 Null Object        | 2              | 1                   |      |
 | 18   | 组合模式 Composite            | 1              | 1                   |      |
 | 19   | 访问者模式 Visitor            | 1              | 1                   |      |
-
-
+| 20   | 适配器模式 Adaptor            | 1              | 1                   |      |
+| 21   | 中介者模式 Mediator            | 1              | 1                   |      |
+| 22   | 代理模式 Proxy                | 1              |1                    |      |
+| 23   | 责任链模式 Responsibility Chian | 1             | 1                   |      |
+| 24   | 解释器模式 Interpreter          | 1             | 1                  |       |
 
 ## 项目结构 Package Structure
 
@@ -914,7 +917,7 @@ public class NullMerchFactory extends MerchFactory {
   ```
 
 
-### 4.20 适配器模式 Adaptor
+### 4.20 适配器模式 Adapter
 
 #### 4.20.1 模式简介
 
@@ -930,8 +933,15 @@ public class NullMerchFactory extends MerchFactory {
 
 制作不同种类饮料。
 
+```java
+public class BeverageAdapter implements OrderCoke{
+   public CokeAdapter(MerchType merchType);
+   public void orderBeverage(MerchType merchType, String fileName);
+}
+```
 
-### 4.21 中介者模式 Mediator Pattern
+
+### 4.21 中介者模式 Mediator
 
 #### 4.21.1 模式简介
 
@@ -947,8 +957,17 @@ public class NullMerchFactory extends MerchFactory {
 
 托盘作为中介者，实现食物与顾客之间的通信行为。
 
+```java
+public interface TakeMeal {
+   private Merch merch;
+   
+   protected void getMerchEntity();
+   public void sendMessage();
+}
+```
 
-### 4.22 代理模式 Proxy Pattern
+
+### 4.22 代理模式 Proxy
 
 #### 4.22.1 模式简介
 
@@ -964,8 +983,15 @@ public class NullMerchFactory extends MerchFactory {
 
 订单作为中间层供顾客完成点单行为。
 
+```java
+public interface PlaceOrder {
+   void placeAnOrder();
+   void showOrder();
+}
+```
 
-### 4.23 责任链模式 Chain of Responsibility Pattern
+
+### 4.23 责任链模式 Chain of Responsibility
 
 #### 4.23.1 模式简介
 
@@ -978,9 +1004,16 @@ public class NullMerchFactory extends MerchFactory {
 #### 4.23.3 Class diagram
 
 #### 4.23.4 API描述
+```java
+public abstract class GrillerResponsibility {
+   protected GrillerResponsibility nextGriller;
+   protected CheckGrillerResponsibility(Griller griller);
+   public void setNextGriller(GrillerResponsibility nextGriller);
+}
 
+```
 
-### 4.24 解释器模式 Interpreter Pattern
+### 4.24 解释器模式 Interpreter
 
 #### 4.24.1 模式简介
 
@@ -995,3 +1028,9 @@ public class NullMerchFactory extends MerchFactory {
 #### 4.24.4 API描述
 
 通过解释器创建订单。
+
+```java
+public interface OrderInterpreter {
+   public boolean interpret(String context);
+}
+```
