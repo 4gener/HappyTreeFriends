@@ -929,6 +929,8 @@ public class NullMerchFactory extends MerchFactory {
 
 #### 4.20.3 Class diagram
 
+![Framework!DesignPattern!Adapter_20](assets/Framework!DesignPattern!Adapter_20.png)
+
 #### 4.20.4 API描述
 
 制作不同种类饮料。
@@ -952,6 +954,8 @@ public class BeverageAdapter implements OrderCoke{
 烹饪好的食品放入托盘，托盘传递给顾客，通知顾客订单完成的状态。托盘作为食物类和顾客类的通信，便于松耦合的实现。
 
 #### 4.21.3 Class diagram
+
+![Framework!DesignPattern!Mediator_21](assets/Framework!DesignPattern!Mediator_21-1541236427102.png)
 
 #### 4.21.4 API描述
 
@@ -979,6 +983,8 @@ public interface TakeMeal {
 
 #### 4.22.3 Class diagram
 
+![Framework!DesignPattern!Proxy_22](../UMLDiagrams/DesignPatternView/Framework!DesignPattern!Proxy_22.png)
+
 #### 4.22.4 API描述
 
 订单作为中间层供顾客完成点单行为。
@@ -1003,6 +1009,8 @@ public interface PlaceOrder {
 
 #### 4.23.3 Class diagram
 
+![Framework!DesignPattern!ChainOfResponsibility_23](assets/Framework!DesignPattern!ChainOfResponsibility_23.png)
+
 #### 4.23.4 API描述
 ```java
 public abstract class GrillerResponsibility {
@@ -1024,6 +1032,8 @@ public abstract class GrillerResponsibility {
 创建订单的过程是一个经常反复的过程，通过定义一个表达式接口，用特定的方式完成订单的创建。
 
 #### 4.24.3 Class diagram
+
+![Framework!DesignPattern!Interpreter_24](assets/Framework!DesignPattern!Interpreter_24.png)
 
 #### 4.24.4 API描述
 
