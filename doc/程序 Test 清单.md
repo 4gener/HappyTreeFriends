@@ -21,4 +21,8 @@
 | Null Object      | `NullMerchFactory`                                           | 7               | 3                    |
 | Composite        | `Order.add(merch)`                                           | 7               | 3                    |
 | Visitor          | `Visitor.visit(container)`                                   | 7               | 3                    |
-
+| Adapter          | `BeverageAdapter`                                            | 7               | 3                    |
+| Mediator         | `Order.TakeMeal`                                             | 7               | 3                    |
+| Proxy            | `Order.PlaceOrder`                                           | 7               | 3                    |
+| Chain of Res.    | `Griller.GrillerResponsibility`                              | 7               | 3                    |
+| Interpreter      | `Order.OrderInterpreter`                                     | 7               | 3                    |  
